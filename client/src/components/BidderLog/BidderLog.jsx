@@ -26,7 +26,7 @@ const BidderLog = () => {
           bg="white"
           borderRadius="lg"
           borderWidth="2px"
-          borderColor={"rgb(38, 162, 16)"}
+          borderColor={"#ececec"}
         >
           <Text fontSize={"4xl"} fontFamily="Work Sans">
             Bidder
@@ -38,7 +38,7 @@ const BidderLog = () => {
           bg="white"
           borderRadius="lg"
           borderWidth="2px"
-          borderColor={"rgb(38, 162, 16)"}
+          borderColor={"#ececec"}
         >
           <Tabs isFitted variant="soft-rounded">
             <TabList>

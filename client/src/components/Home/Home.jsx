@@ -20,7 +20,7 @@ const Home = () => {
             <Link to={"/"}>Publish Tender</Link>
           </li>
           <li>
-            <Link to={"/"}>Bidder Login/Signup</Link>
+            <Link to={"/bidderlog"}>Bidder Login/Signup</Link>
           </li>
         </ul>
       </nav>
@@ -34,6 +34,37 @@ const Home = () => {
             alt=""
           />
         </div>
+      </div>
+      <div className="brs">
+        <h1 className="brsh1">BROWSE TENDER</h1>
+        <div className="btnsbrs">
+          <button className="brsbt">Cities</button>
+          <button className="brsbt">State</button>
+          <button className="brsbt">Sector</button>
+        </div>
+      </div>
+      <div className="ltd">
+        <h1 className="brsh1">LATEST TENDERS</h1>
+        <table>
+          <tr>
+            <th>Tender Title</th>
+            <th>Reference No.</th>
+            <th>Closing Date</th>
+            <th>Bid Opening Date</th>
+          </tr>
+          <tr>
+            <td>Tender Title</td>
+            <td>Reference No.</td>
+            <td>Closing Date</td>
+            <td>Bid Opening Date</td>
+          </tr>
+          <tr>
+            <td>Tender Title</td>
+            <td>Reference No.</td>
+            <td>Closing Date</td>
+            <td>Bid Opening Date</td>
+          </tr>
+        </table>
       </div>
     </div>
   );
