@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Poppins&family=Work+Sans:wght@300&display=swap");
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 6px 9px;
+  padding-top: 1.5rem;
+  padding-bottom: 1.7rem;
+  background-color: #ececec;
+}
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 35vw;
+  font-size: larger;
+}
+#sbs {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.sbs1 {
+  width: 25vw;
+  padding-top: 1.5rem;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 50px;
+  line-height: 4rem;
+}
+.sbs2 img {
+  height: 27rem;
+  width: 34rem;
+}
