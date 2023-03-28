@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Poppins&family=Work+Sans:wght@300&display=swap");
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 6px 9px;
+  padding-top: 1.5rem;
+  padding-bottom: 1.7rem;
+  background-color: #ececec;
+}
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 35vw;
+  font-size: larger;
+}
+#sbs {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 7rem;
+  padding-bottom: 8rem;
+}
+.sbs1 {
+  width: 25vw;
+  padding-top: 1.5rem;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 50px;
+  line-height: 4rem;
+}
+.sbs2 img {
+  height: 28rem;
+  width: 35rem;
+}
+.brs {
+  padding: 4rem 3rem;
+  background-color: #ececec;
+}
+.brsh1 {
+  text-align: center;
+  font-family: "Inter";
+  font-style: normal;
+  font-size: 2.5rem;
+  padding-bottom: 2rem;
+}
+.btnsbrs {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 2.5rem;
+  padding-bottom: 1rem;
+}
+.brsbt {
+  background-color: black;
+  padding: 0.7rem 2.5rem;
+  font-size: x-large;
+  border-radius: 6px;
+  color: rgb(249, 248, 248);
+}
+.ltd {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 0 auto;
+  background-color: #ece9e9;
+  /* border: 0.5px solid gray; */
+  margin-top: 10vh;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
