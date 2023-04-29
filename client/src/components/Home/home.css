@@ -4,18 +4,18 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   padding: 6px 9px;
-  padding-top:.5rem;
-  padding-bottom: .5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   background-color: #ececec;
 }
-ul {
+nav > ul {
   list-style: none;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   width: 45vw;
   font-size: larger;
-  padding-top:.7rem;
+  padding-top: 0.7rem;
 }
 #sbs {
   display: flex;
@@ -77,15 +77,15 @@ th,
 td {
   padding: 12px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #bab9b9;
 }
 
 th {
   background-color: #f2f2f2;
 }
-.navimg{
+.navimg {
   height: 60px;
-  width:60px;
-  margin:0;
-  padding:0;
+  width: 60px;
+  margin: 0;
+  padding: 0;
 }

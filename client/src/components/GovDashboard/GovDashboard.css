@@ -1,0 +1,35 @@
+#maingd {
+  width: 80%;
+  margin: auto;
+}
+.extradata {
+  margin-left: 1.5%;
+  margin-top: 2rem;
+  color: #000000;
+}
+.extradata > h1 {
+  font-size: 1.8rem;
+}
+.navdet {
+  display: flex;
+}
+.navdet > h1 {
+  font-family: "Inter";
+  margin-left: 1rem;
+  font-size: larger;
+  margin-top: 1rem;
+}
+.navimg1 {
+  margin: 0;
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+}
+#gbnavul {
+  justify-content: space-around;
+  width: 10%;
+}
+.gdbtable {
+  width: 100%;
+  margin: 0;
+}
