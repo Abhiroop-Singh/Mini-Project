@@ -1,0 +1,54 @@
+#ubnavul {
+  width: 20%;
+}
+#udbpnav {
+  font-size: medium;
+}
+.navimg2 {
+  margin: auto;
+  height: 2.2rem;
+  width: 2.2rem;
+  padding-top: 0;
+}
+.udbmain {
+  width: 75%;
+  margin: auto;
+  margin-top: 2rem;
+}
+#udbnamehead {
+  font-family: "Inter";
+  font-size: 2rem;
+}
+#welcomeudb {
+  font-size: 1.8rem;
+  margin-top: 0.8rem;
+}
+.tender {
+  text-align: center;
+  font-size: xx-large;
+  margin-top: 2rem;
+  padding: 0.8rem 0;
+  border: 2px solid rgb(229, 227, 227);
+  border-radius: 5px;
+  margin-bottom: 0;
+  /* padding-bottom: 0; */
+}
+#allotudb {
+  background: #ffe5bd;
+}
+#biddedudb {
+  background: #ffdddd;
+}
+#prevudb {
+  background: #e8ffc1;
+}
+.udbdata {
+  padding: 0.4rem 1rem;
+  width: 100%;
+  background-color: #faf3f0;
+  border-bottom: 2px solid gray;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-left: 1px solid rgb(214, 214, 214);
+  border-right: 1px solid rgb(232, 232, 232);
+}

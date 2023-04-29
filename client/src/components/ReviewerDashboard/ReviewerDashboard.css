@@ -1,0 +1,50 @@
+.tenderev {
+  /* text-align: center; */
+  font-size: xx-large;
+  margin-top: 4.5rem;
+  padding: 0.3rem 0;
+  border: 2px solid rgb(229, 227, 227);
+  border-radius: 6px;
+  margin-bottom: 0;
+  width: 30%;
+  padding-left: 0.8rem;
+}
+.revdata {
+  padding: 0.4rem 1rem;
+  width: 100%;
+  background-color: #fcf9f7;
+  border-bottom: 2px solid gray;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-left: 1px solid rgb(214, 214, 214);
+  border-right: 1px solid rgb(232, 232, 232);
+}
+#main1 {
+  padding-bottom: 7rem;
+}
+.revdata {
+  display: flex;
+  justify-content: space-between;
+}
+.texth1 {
+  font-size: large;
+  font-weight: 600;
+}
+.textspan {
+  display: flex;
+  line-height: 2.6rem;
+}
+.textp1 {
+  font-size: large;
+}
+.linktoprop {
+  font-size: large;
+  font-weight: 600;
+  color: blue;
+  text-decoration: underline;
+}
+.ratingip {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 2px;
+}
