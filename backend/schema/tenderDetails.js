@@ -21,14 +21,18 @@ const tenderDisplay = new mongoose.Schema({
         type:String,
         required:true
     },
+    tenderDetails:{
+        type:String
+    },
     location:{
         type:String
     },
     status:{
         type:String,
     },
-    pdfDescription:{
-        type:String
+    pdfUpload:{
+        type:String,
+        default:""
     }
 });
 

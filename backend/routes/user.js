@@ -7,9 +7,7 @@ const user = require('../schema/userschema');
 router.post('/register',async(req,res)=>{
     var check = await user.findOne({email:req.body.email});
     if(!check){
-        var companyName=req.body.companyName;
         var password = await bcrypt.hash(req.body.password,10);
-
         const person = await user.create({
             email:req.body.email,
             password:password,

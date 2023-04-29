@@ -25,17 +25,18 @@ router.post("/tenderdisplay",async(req,res) =>{
     res.status(200).json({success:true,data:t})
 })
 
+//not tested
 router.post("/uploadTender",upload.single("image"),async(req,res)=>{
     const data = await tender.create({
         tenderTitle:req.body.tenderTitle,
         authority:req.body.authority,
         referenceNumber:req.body.referenceNumber,
         bidOpeningDate:req.body.bidOpeningDate,
-        bidclosingDate:req.body.bidclosingDate,
+        bidClosingDate:req.body.bidClosingDate,
         tenderDetails:req.body.tenderDetails,
         location:req.body.location,
         status:req.body.status,
-        pdfDescription:file_name
+        pdfUpload:file_name
     });
     res.status(200).json({success:true,message:"Tender uploaded"});
 })

@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
         type:Number
     },
     panNo:{
-        type:Number
+        type:String
     },
     est_year:{
         type:Number
