@@ -78,9 +78,9 @@ const UserSignup = () => {
     <>
       <VStack spacing="5px" color="black">
         <FormControl isRequired>
-          <FormLabel>Name</FormLabel>
+          <FormLabel>CompanyName:</FormLabel>
           <Input
-            placeholder="Enter Your Name"
+            placeholder="Enter your company name"
             value={companyName}
             name="companyName"
             onChange={(e) => setCompanyName(e.target.value)}

@@ -8,7 +8,8 @@ const Home = () => {
         <h1>
           <u>
             <b>
-              <Link to={"/"}>eTender</Link>
+              <img src={require("../../Assets/images/minilogo.png")} alt="mini" className="navimg"/>
+              <Link to={"/"}></Link>
             </b>
           </u>
         </h1>
@@ -53,17 +54,30 @@ const Home = () => {
             <th>Bid Opening Date</th>
           </tr>
           <tr>
-            <td>Tender Title</td>
-            <td>Reference No.</td>
-            <td>Closing Date</td>
-            <td>Bid Opening Date</td>
+            <td>Tender 1</td>
+            <td>`123432S</td>
+            <td>23-03-23</td>
+            <td>12-02-23</td>
           </tr>
           <tr>
-            <td>Tender Title</td>
-            <td>Reference No.</td>
-            <td>Closing Date</td>
-            <td>Bid Opening Date</td>
+            <td>Tender 1</td>
+            <td>`123432S</td>
+            <td>23-03-23</td>
+            <td>12-02-23</td>
           </tr>
+          <tr>
+            <td>Tender 1</td>
+            <td>`123432S</td>
+            <td>23-03-23</td>
+            <td>12-02-23</td>
+          </tr>
+          <tr>
+            <td>Tender 1</td>
+            <td>`123432S</td>
+            <td>23-03-23</td>
+            <td>12-02-23</td>
+          </tr>
+         
         </table>
       </div>
     </div>

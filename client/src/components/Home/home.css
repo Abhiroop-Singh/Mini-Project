@@ -4,8 +4,8 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   padding: 6px 9px;
-  padding-top: 1.5rem;
-  padding-bottom: 1.7rem;
+  padding-top:.5rem;
+  padding-bottom: .5rem;
   background-color: #ececec;
 }
 ul {
@@ -13,8 +13,9 @@ ul {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 35vw;
+  width: 45vw;
   font-size: larger;
+  padding-top:.7rem;
 }
 #sbs {
   display: flex;
@@ -81,4 +82,10 @@ td {
 
 th {
   background-color: #f2f2f2;
+}
+.navimg{
+  height: 60px;
+  width:60px;
+  margin:0;
+  padding:0;
 }
