@@ -11,14 +11,31 @@ router.post('/register',async(req,res)=>{
         var password = await bcrypt.hash(req.body.password,10);
 
         const person = await user.create({
-            companyName: req.body.companyName,
             email:req.body.email,
-            password:password
+            password:password,
+            companyName:req.body.companyName,
+            companyRegNo:req.body.companyRegNo,
+            registeredAddress:req.body.registeredAddress,
+            bidderType:req.body.bidderType,
+            city:req.body.city,
+            state:req.body.state,
+            postalCode:req.body.postalCode,
+            panNo:req.body.panNo,
+            est_year:req.body.est_year,
+            bussinessType:req.body.bussinessType,
+            legal_status:req.body.legal_status,
+            company_category:req.body.company_category,
+            title:req.body.title,
+            contact:req.body.contact,
+            name:req.body.name,
+            dob:req.body.dob,
+            designation:req.body.designation,
+            phone:req.body.phone
         });
-        res.status(200).json({success:true,message:"user successfully registered"});
+        res.status(200).json({success:true,message:"bidder successfully registered"});
     }
     else{
-        res.status(400).json({success:false,message:"user already exists"});
+        res.status(400).json({success:false,message:"bidder already exists"});
     }
 });
 
