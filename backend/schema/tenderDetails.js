@@ -5,11 +5,11 @@ const tenderDisplay = new mongoose.Schema({
         type:String,
         required:true
     },
-    referenceNumber :{
+    authority:{
         type:String,
         required:true
     },
-    closingDate: {
+    referenceNumber :{
         type:String,
         required:true
     },
@@ -17,8 +17,18 @@ const tenderDisplay = new mongoose.Schema({
         type:String,
         required:true
     },
+    bidClosingDate: {
+        type:String,
+        required:true
+    },
+    location:{
+        type:String
+    },
     status:{
         type:String,
+    },
+    pdfDescription:{
+        type:String
     }
 });
 
