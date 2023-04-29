@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-//using the collection
 const user = require('../schema/userschema');
 
 router.post('/register',async(req,res)=>{
