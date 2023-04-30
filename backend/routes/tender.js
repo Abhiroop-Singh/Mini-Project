@@ -22,12 +22,11 @@ const upload = multer({
   storage: storage,
 });
 
-router.post("/tenderdisplay",async(req,res) =>{
+router.get("/tenderdisplay",async(req,res) =>{
     let t=await tender.find();
     res.status(200).json({success:true,data:t})
 })
 
-//not tested
 router.post("/uploadTender",upload.single("image"),async(req,res)=>{
     const data = await tender.create({
         tenderTitle:req.body.tenderTitle,

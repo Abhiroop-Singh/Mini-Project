@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 // middleware
-app.use('/api/',require('./routes/user'));
+app.use('/api/user',require('./routes/user'));
 app.use('/api/tender',require('./routes/tender'));
 
 app.listen(4000,()=>{
