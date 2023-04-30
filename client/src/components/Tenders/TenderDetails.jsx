@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Tender.css";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link,useLocation } from "react-router-dom";
+import axios from "axios";
 
 const TenderDetails = () => {
+
+  const [tender,setTender] = useState({});
+  const {state} = useLocation();
+
+  const getTenderDetails = async()=>{
+    const referenceNumber=state.tender;
+    const res = await axios.post('/api/tender/tenderdetails',{refno:referenceNumber});
+    setTender(res.data.data);
+    console.log(res.data.data);
+  }
+  useEffect(() => {
+    getTenderDetails();
+  }, [])
+  
   return (
     <div>
       <nav>
@@ -30,6 +46,7 @@ const TenderDetails = () => {
           </li>
         </ul>
       </nav>
+
       <div className="maindetailstend">
         <div className="leftpart">
           <div className="listingdata" id="listdata1">
@@ -38,11 +55,11 @@ const TenderDetails = () => {
             </div>
             <div className="textspan1">
               <h1 className="texth2">Organization chain : &nbsp;</h1>
-              <p className="textp2"> value</p>
+              <p className="textp2"> {tender.authority}</p>
             </div>
             <div className="textspan1">
               <h1 className="texth2">Tender RefNo. : &nbsp;</h1>
-              <p className="textp2"> value</p>
+              <p className="textp2"> {tender.referenceNumber}</p>
             </div>
             <div className="textspan1">
               <h1 className="texth2">TenderID : &nbsp;</h1>
@@ -63,15 +80,11 @@ const TenderDetails = () => {
             </div>
             <div className="textspan1">
               <h1 className="texth2">TenderNotice1.pdf &nbsp;</h1>
-              <Link to={"/"} className="linkpdf1">
+              <a href={`http://localhost:4000/uploads/${tender.myFile}`} 
+              className="linkpdf1"
+              target="blank">
                 Download
-              </Link>
-            </div>
-            <div className="textspan1">
-              <h1 className="texth2">TenderNotice2.pdf &nbsp;</h1>
-              <Link to={"/"} className="linkpdf1">
-                Download
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -81,16 +94,12 @@ const TenderDetails = () => {
               Critical Details
             </div>
             <div className="textspan1">
-              <h1 className="texth2">Published Date &nbsp;</h1>
-              <p className="textp2"> value</p>
-            </div>
-            <div className="textspan1">
               <h1 className="texth2">Bid Submission Start Date &nbsp;</h1>
-              <p className="textp2"> value</p>
+              <p className="textp2"> {tender.bidOpeningDate}</p>
             </div>
             <div className="textspan1">
               <h1 className="texth2">Bid Submission End Date &nbsp;</h1>
-              <p className="textp2"> value</p>
+              <p className="textp2"> {tender.bidClosingDate}</p>
             </div>
           </div>
           <div className="listingdata">

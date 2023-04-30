@@ -44,6 +44,9 @@ router.post("/uploadTender",upload.single("image"),async(req,res)=>{
     return res.redirect('/gov');
 })
 
-
+router.post('/tenderdetails',async(req,res)=>{
+  const response = await tender.findOne({referenceNumber:req.body.refno});
+  res.status(200).json({success:true,data:response});
+})
 
 module.exports = router;

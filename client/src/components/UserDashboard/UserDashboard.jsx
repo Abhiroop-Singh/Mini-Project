@@ -57,6 +57,7 @@ const UserDashboard = () => {
           </li>
         </ul>
       </nav>
+
       <div className="udbmain">
         <h1 id="udbnamehead">Hello Ravindra!</h1>
         <h1 id="welcomeudb">Welcome, Sir!</h1>
@@ -67,7 +68,11 @@ const UserDashboard = () => {
           allotedTender.map((val)=>{
             return (
               <div className="udbdata">
+                <Link to={`/tenderDetails/${val}`}
+                  state={{tender:val}}
+                >
                 Reference Number: {val} <br />
+                </Link>
               </div>
             )
           })
@@ -78,9 +83,11 @@ const UserDashboard = () => {
         {
           biddedTender.map((val)=>{
             return (
-              <div className="udbdata">
+              <Link to={`/tenderDetails/${val}`}
+                  state={{tender:val}}
+                >
                 Reference Number: {val} <br />
-              </div>
+                </Link>
             )
           })
         }
@@ -90,9 +97,11 @@ const UserDashboard = () => {
         {
           previousTender.map((val)=>{
             return (
-              <div className="udbdata">
+              <Link to={`/tenderDetails/${val}`}
+                  state={{tender:val}}
+                >
                 Reference Number: {val} <br />
-              </div>
+                </Link>
             )
           })
         }

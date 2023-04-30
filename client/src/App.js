@@ -19,7 +19,7 @@ function App() {
           <Route path="/user" element={<UserDashboard />} />
           <Route path="/review" element={<ReviewerDashboard />} />
           <Route path="/tenders" element={<TenderList />} />
-          <Route path="/tenderdetails" element={<TenderDetails />} />
+          <Route path="/tenderdetails/:id" element={<TenderDetails />} />
         </Routes>
       </BrowserRouter>
     </>
