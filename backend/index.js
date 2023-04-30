@@ -16,7 +16,9 @@ app.get('/',(req,res)=>{
     res.send("Something");
 });
 
+//for uploading tender
 app.use("/uploads",express.static("uploads"))
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 

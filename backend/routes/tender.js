@@ -40,7 +40,9 @@ router.post("/uploadTender",upload.single("image"),async(req,res)=>{
         status:req.body.status,
         myFile:file_name
     });
-    res.status(200).json({success:true,message:"Tender uploaded"});
+    // res.status(200).json({success:true,message:"Tender uploaded"});
+
+    return res.redirect('/gov');
 })
 
 

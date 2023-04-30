@@ -53,24 +53,6 @@ const handleChange=(e)=>{
   }
 }
 
-const handleSubmit=async(e)=>{
-  e.preventDefault();
-  const data = {tenderTitle,authority,referenceNumber,bidOpeningDate,bidClosingDate,
-  location,status,image};
-  
-  const res=await fetch("/api/tender/uploadTender",{
-    method:"POST",
-    headers:{
-      "content-type":"application/json"
-    },
-    body:JSON.stringify(data)
-  })
-  const msg=await res.json();
-  console.log(msg)
-
-
-}
-
   return (
     <>
       <nav>
@@ -246,7 +228,7 @@ const handleSubmit=async(e)=>{
           <input type="file" name="image" id="testImage"></input>
           <input type="submit"></input>
           </form>
-        </div>
+        </div> 
       </div> 
     </>
   );
