@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import axios from 'axios';
 import "./GovDashboard.css";
 import {
@@ -25,7 +25,40 @@ const [location, setLocation] = useState("");
 const [status, setStatus] = useState("");
 const [image,setImage] = useState({});
 
-
+const [active, setActive] = useState([]);
+const [allotted, setAllotted] = useState([]);
+const [closed, setClosed] = useState([]);
+let a=[];let b=[];let c=[]
+useEffect(() => {
+ fetchData();
+}, [])
+const fetchData=async()=>{
+  const res=await fetch("/api/tender/tenderdisplay",{
+    method:"POST",
+    headers:{
+      "content-type":"application/json"
+    },
+    
+  })
+  const d=await res.json();
+  const data=d.data
+ 
+  for(let i=0;i<data.length;i++){
+    if(data[i].status==="active"){
+        a.push(data[i])
+    }
+    else if(data[i].status==="alloted"){
+      b.push(data[i])
+    }
+    else{
+      c.push(data[i]);
+    }
+  }
+  setActive(a);
+  setAllotted(b);
+  setClosed(c);
+  
+}
 const handleChange=(e)=>{
   if(e.target.name==="tenderTitle"){
     setTenderTitle(e.target.value)
@@ -52,6 +85,8 @@ const handleChange=(e)=>{
     setTenderDetails(e.target.value)
   }
 }
+
+
 
   return (
     <>
@@ -116,98 +151,44 @@ const handleChange=(e)=>{
                         <th>Closing Date</th>
                         <th>Bid Opening Date</th>
                       </tr>
-                      <tr>
-                        <td>Tender 1</td>
-                        <td>`123432S</td>
-                        <td>23-03-23</td>
-                        <td>12-02-23</td>
-                      </tr>
-                      <tr>
-                        <td>Tender 1</td>
-                        <td>`123432S</td>
-                        <td>23-03-23</td>
-                        <td>12-02-23</td>
-                      </tr>
-                      <tr>
-                        <td>Tender 1</td>
-                        <td>`123432S</td>
-                        <td>23-03-23</td>
-                        <td>12-02-23</td>
-                      </tr>
-                      <tr>
-                        <td>Tender 1</td>
-                        <td>`123432S</td>
-                        <td>23-03-23</td>
-                        <td>12-02-23</td>
-                      </tr>
+                      {
+                        active.map((e)=>{
+                          return   <tr>
+                          <td>{e.tenderTitle}</td>
+                          <td>{e.referenceNumber}</td>
+                          <td>{e.bidOpeningDate}</td>
+                          <td>{e.bidClosingDate}</td>
+                        </tr>
+                        })
+                      }
+                    
+                     
                     </table>
                   </TabPanel>
                   <TabPanel>
                     <table className="gdbtable">
-                      <tr>
-                        <th>Tender Title</th>
-                        <th>Reference No.</th>
-                        <th>Closing Date</th>
-                        <th>Bid Opening Date</th>
+                      {allotted.map((e)=>{
+                        return  <tr>
+                        <td>{e.tenderTitle}</td>
+                        <td>{e.referenceNumber}</td>
+                        <td>{e.bidOpeningDate}</td>
+                        <td>{e.bidClosingDate}</td>
                       </tr>
-                      <tr>
-                        <td>Tender 1</td>
-                        <td>`123432S</td>
-                        <td>23-03-23</td>
-                        <td>12-02-23</td>
-                      </tr>
-                      <tr>
-                        <td>Tender 1</td>
-                        <td>`123432S</td>
-                        <td>23-03-23</td>
-                        <td>12-02-23</td>
-                      </tr>
-                      <tr>
-                        <td>Tender 1</td>
-                        <td>`123432S</td>
-                        <td>23-03-23</td>
-                        <td>12-02-23</td>
-                      </tr>
-                      <tr>
-                        <td>Tender 1</td>
-                        <td>`123432S</td>
-                        <td>23-03-23</td>
-                        <td>12-02-23</td>
-                      </tr>
+                      })}
+                     
+                     
                     </table>
                   </TabPanel>
                   <TabPanel>
                     <table className="gdbtable">
-                      <tr>
-                        <th>Tender Title</th>
-                        <th>Reference No.</th>
-                        <th>Closing Date</th>
-                        <th>Bid Opening Date</th>
+                    {closed.map((e)=>{
+                        return  <tr>
+                        <td>{e.tenderTitle}</td>
+                        <td>{e.referenceNumber}</td>
+                        <td>{e.bidOpeningDate}</td>
+                        <td>{e.bidClosingDate}</td>
                       </tr>
-                      <tr>
-                        <td>Tender 1</td>
-                        <td>`123432S</td>
-                        <td>23-03-23</td>
-                        <td>12-02-23</td>
-                      </tr>
-                      <tr>
-                        <td>Tender 1</td>
-                        <td>`123432S</td>
-                        <td>23-03-23</td>
-                        <td>12-02-23</td>
-                      </tr>
-                      <tr>
-                        <td>Tender 1</td>
-                        <td>`123432S</td>
-                        <td>23-03-23</td>
-                        <td>12-02-23</td>
-                      </tr>
-                      <tr>
-                        <td>Tender 1</td>
-                        <td>`123432S</td>
-                        <td>23-03-23</td>
-                        <td>12-02-23</td>
-                      </tr>
+                      })}
                     </table>
                   </TabPanel>
                 </TabPanels>
