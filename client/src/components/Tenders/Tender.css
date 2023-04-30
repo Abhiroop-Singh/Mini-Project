@@ -1,0 +1,46 @@
+#filtersection {
+  text-align: center;
+  padding: 2rem 2rem;
+  background-color: rgb(203, 188, 168);
+  padding-bottom: 3rem;
+}
+#filtersection > h1 {
+  font-family: "Inter";
+  font-size: xx-large;
+  margin-bottom: 3rem;
+}
+.filteroption {
+  display: flex;
+  justify-content: space-around;
+}
+.filterdrpdwn {
+  padding: 1rem 1.5rem;
+  text-align: center;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  font-family: "Inter";
+  font-size: large;
+}
+.mainlist {
+  width: 70%;
+  margin: auto;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+.mainlist > h1 {
+  font-size: x-large;
+  font-family: "Inter";
+  text-decoration: underline;
+  line-height: 2rem;
+  margin-bottom: 1rem;
+}
+.tenderlisting {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  background-color: #f0f0f0;
+  border: 1px solid rgb(190, 189, 189);
+  border-radius: 4px;
+  padding: 1rem 3rem;
+}

@@ -5,6 +5,7 @@ import BidderLog from "./components/BidderLog/BidderLog";
 import GovDashboard from "./components/GovDashboard/GovDashboard";
 import UserDashboard from "./components/UserDashboard/UserDashboard";
 import ReviewerDashboard from "./components/ReviewerDashboard/ReviewerDashboard";
+import TenderList from "./components/Tenders/TenderList";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/gov" element={<GovDashboard />} />
           <Route path="/user" element={<UserDashboard />} />
           <Route path="/review" element={<ReviewerDashboard />} />
+          <Route path="/tenders" element={<TenderList />} />
         </Routes>
       </BrowserRouter>
     </>
