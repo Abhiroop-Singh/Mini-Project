@@ -5,9 +5,12 @@ const tenderDisplay = new mongoose.Schema({
         type:String,
         required:true
     },
-    authority:{
+    governingAuthority:{
         type:String,
         required:true
+    },
+    companyAlloted:{
+        type:String,
     },
     referenceNumber :{
         type:String,
