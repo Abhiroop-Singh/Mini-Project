@@ -65,7 +65,10 @@ const userSchema = new mongoose.Schema({
     },
     phone:{
         type:Number
-    }
+    },
+    previousTenders:[],
+    biddedTenders:[],
+    allotedTenders:[]
     //state,postal-code,pan/tan number,est year,nature of bussiness,legal status,
     //company category,Contact Details:[Title,Contact Name,DOB,Designation,Phone No.]
 });

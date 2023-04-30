@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import "./GovDashboard.css";
 import {
   Box,
@@ -11,7 +11,58 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
+
 const GovDashboard = () => {
+
+const [tenderTitle, setTenderTitle] = useState("");
+const [authority, setAuthority] = useState("");
+const [referenceNumber, setReferenceNumber] = useState("");
+const [bidOpeningDate, setBidOpeningDate] = useState("");
+const [bidClosingDate, setBidClosingDate] = useState("");
+const [tenderDetails, setTenderDetails] = useState("");
+const [location, setLocation] = useState("");
+const [status, setStatus] = useState("");
+
+
+const handleChange=(e)=>{
+  if(e.target.name==="tenderTitle"){
+    setTenderTitle(e.target.value)
+  } 
+  if(e.target.name==="authority"){
+    setAuthority(e.target.value)
+  } 
+  if(e.target.name==="referenceNumber"){
+    setReferenceNumber(e.target.value)
+  } 
+  if(e.target.name==="bidOpeningDate"){
+    setBidOpeningDate(e.target.value)
+  } 
+  if(e.target.name==="bidClosingDate"){
+    setBidClosingDate(e.target.value)
+  } 
+  if(e.target.name==="location"){
+    setLocation(e.target.value)
+  } 
+  if(e.target.name==="status"){
+    setStatus(e.target.value)
+  } 
+ 
+}
+const handleSubmit=async(e)=>{
+  e.preventDefault();
+  console.log(bidOpeningDate)
+}
+
+
+
+
+
+
+
+
+
+
+
   return (
     <>
       <nav>
@@ -172,6 +223,18 @@ const GovDashboard = () => {
               </Tabs>
             </Box>
           </Container>
+          <form action="">
+          <input type="text" name="tenderTitle" value={tenderTitle} onChange={handleChange}/> 
+          <input type="text" name="authority" value={authority} onChange={handleChange}></input>
+          <input type="text" name="referenceNumber" value={referenceNumber} onChange={handleChange}/> 
+          <input type="date" name="bidOpeningDate" value={bidOpeningDate} onChange={handleChange}/> 
+          <input type="date" name="bidClosingDate" value={bidClosingDate} onChange={handleChange}/> 
+          <input type="text" name="tenderDetails" value={tenderDetails} onChange={handleChange}/> 
+          <input type="text" name="location" value={location} onChange={handleChange}></input>
+          <input type="text" name="status" value={status} onChange={handleChange}/> 
+          <input type="file" name="pdfUpload" ></input>
+          <button onClick={handleSubmit}>submit</button>
+          </form>
         </div>
       </div>
     </>
