@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import axios from 'axios';
 import "./GovDashboard.css";
 import {
   Box,
@@ -22,6 +23,7 @@ const [bidClosingDate, setBidClosingDate] = useState("");
 const [tenderDetails, setTenderDetails] = useState("");
 const [location, setLocation] = useState("");
 const [status, setStatus] = useState("");
+const [pdfUpload,setPdfUpload] = useState("");
 
 
 const handleChange=(e)=>{
@@ -46,22 +48,20 @@ const handleChange=(e)=>{
   if(e.target.name==="status"){
     setStatus(e.target.value)
   } 
- 
+  if(e.target.name==="tenderDetails"){
+    setTenderDetails(e.target.value)
+  }
 }
+
 const handleSubmit=async(e)=>{
   e.preventDefault();
-  console.log(bidOpeningDate)
+  const data = {tenderTitle,authority,referenceNumber,bidOpeningDate,bidClosingDate,
+  location,status,pdfUpload};
+  
+  const res = await axios.post('/api/tender/uploadTender',data);
+
+  console.log(res);
 }
-
-
-
-
-
-
-
-
-
-
 
   return (
     <>
@@ -94,6 +94,7 @@ const handleSubmit=async(e)=>{
           </li>
         </ul>
       </nav>
+
       <div id="maingd">
         <div className="extradata">
           <h1>Welcome, Sir!</h1>
@@ -223,16 +224,18 @@ const handleSubmit=async(e)=>{
               </Tabs>
             </Box>
           </Container>
+
+          
           <form action="">
-          <input type="text" name="tenderTitle" value={tenderTitle} onChange={handleChange}/> 
-          <input type="text" name="authority" value={authority} onChange={handleChange}></input>
-          <input type="text" name="referenceNumber" value={referenceNumber} onChange={handleChange}/> 
+          <input type="text" name="tenderTitle" value={tenderTitle} onChange={handleChange} placeholder="TenderTitle"/> 
+          <input type="text" name="authority" value={authority} onChange={handleChange}placeholder="Authority"/>
+          <input type="text" name="referenceNumber" value={referenceNumber} onChange={handleChange} placeholder="ReferenceNumber"/> 
           <input type="date" name="bidOpeningDate" value={bidOpeningDate} onChange={handleChange}/> 
           <input type="date" name="bidClosingDate" value={bidClosingDate} onChange={handleChange}/> 
-          <input type="text" name="tenderDetails" value={tenderDetails} onChange={handleChange}/> 
-          <input type="text" name="location" value={location} onChange={handleChange}></input>
-          <input type="text" name="status" value={status} onChange={handleChange}/> 
-          <input type="file" name="pdfUpload" ></input>
+          <input type="text" name="tenderDetails" value={tenderDetails} onChange={handleChange}placeholder="Tender Details"/> 
+          <input type="text" name="location" value={location} onChange={handleChange} placeholder="Location"/>
+          <input type="text" name="status" value={status} onChange={handleChange} placeholder="Status"/> 
+          <input type="file" name="pdfUpload" value={pdfUpload}></input>
           <button onClick={handleSubmit}>submit</button>
           </form>
         </div>
