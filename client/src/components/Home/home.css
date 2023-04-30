@@ -93,3 +93,6 @@ th {
   background-color: rgba(31, 20, 16, 255);
   color: rgb(187, 186, 186);
 }
+Link{
+  cursor:pointer;
+}
