@@ -33,16 +33,8 @@ useEffect(() => {
  fetchData();
 }, [])
 const fetchData=async()=>{
-  const res=await fetch("/api/tender/tenderdisplay",{
-    method:"POST",
-    headers:{
-      "content-type":"application/json"
-    },
-    
-  })
-  const d=await res.json();
-  const data=d.data
- 
+  const res=await axios.get('/api/tender/tenderdisplay');
+  const data = res.data.data;
   for(let i=0;i<data.length;i++){
     if(data[i].status==="active"){
         a.push(data[i])
