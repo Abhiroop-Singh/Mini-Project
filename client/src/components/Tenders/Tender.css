@@ -44,3 +44,87 @@
   border-radius: 4px;
   padding: 1rem 3rem;
 }
+.maindetailstend {
+  display: flex;
+  justify-content: space-evenly;
+}
+.leftpart {
+  padding: 3rem 2rem;
+  width: 40%;
+}
+.rightpart {
+  padding: 3rem 2rem;
+  width: 40%;
+}
+.headingslisting {
+  padding: 1rem 1rem;
+  border: 1px solid rgb(198, 198, 198);
+  width: 50%;
+  border-radius: 3px;
+  font-family: "Inter";
+  font-size: larger;
+}
+#bdetails {
+  background: #ffe5bd;
+}
+#tenderdoc {
+  background: #e8ffc1;
+}
+
+#criticald {
+  background: #ffdddd;
+}
+#inviter {
+  background: #fdffb2;
+}
+.listingdata {
+  padding-bottom: 3rem;
+}
+#listdata1,
+#listdata2 {
+  min-height: 50vh;
+}
+.textspan1 {
+  display: flex;
+  line-height: 2.6rem;
+  border-bottom: 1px solid gray;
+  border-left: 1px solid rgb(222, 221, 221);
+  border-bottom-left-radius: 3px;
+}
+.texth2 {
+  font-size: medium;
+  background-color: #dbdbdb;
+  width: 40%;
+  padding-left: 0.5rem;
+}
+.textp2 {
+  padding-left: 1rem;
+}
+.linkpdf1 {
+  padding-left: 1rem;
+  color: blue;
+  text-decoration: underline;
+}
+#upbid {
+  width: 83%;
+  margin: auto;
+  padding-bottom: 4rem;
+}
+#upbid1 {
+  background: #b2d6f6;
+  width: 20%;
+}
+#h12323 {
+  width: 16%;
+}
+.upbidinner {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+}
+#submitbuttonbidup {
+  padding: 0 2rem;
+  background-color: green;
+  color: white;
+  border-radius: 7px;
+}

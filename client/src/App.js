@@ -6,6 +6,7 @@ import GovDashboard from "./components/GovDashboard/GovDashboard";
 import UserDashboard from "./components/UserDashboard/UserDashboard";
 import ReviewerDashboard from "./components/ReviewerDashboard/ReviewerDashboard";
 import TenderList from "./components/Tenders/TenderList";
+import TenderDetails from "./components/Tenders/TenderDetails";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/user" element={<UserDashboard />} />
           <Route path="/review" element={<ReviewerDashboard />} />
           <Route path="/tenders" element={<TenderList />} />
+          <Route path="/tenderdetails" element={<TenderDetails />} />
         </Routes>
       </BrowserRouter>
     </>
