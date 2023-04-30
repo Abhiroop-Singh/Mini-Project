@@ -23,7 +23,7 @@ const upload = multer({
 });
 
 router.post("/tenderdisplay",async(req,res) =>{
-    let t=await tender.find({status:"ongoing"});
+    let t=await tender.find();
     res.status(200).json({success:true,data:t})
 })
 
