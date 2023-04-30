@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 const multer = require('multer');
 const bcrypt = require('bcrypt');
@@ -8,13 +9,14 @@ const tender =require("../schema/tenderDetails");
 let file_name;
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./uploads");
+    cb(null,'./uploads');
   },
   filename: (req, file, cb) => {
+    
     file_name = file.originalname;
     cb(null, file.originalname);
   },
-});
+});  
 
 const upload = multer({
   storage: storage,
@@ -36,7 +38,7 @@ router.post("/uploadTender",upload.single("image"),async(req,res)=>{
         tenderDetails:req.body.tenderDetails,
         location:req.body.location,
         status:req.body.status,
-        pdfUpload:file_name
+        myFile:file_name
     });
     res.status(200).json({success:true,message:"Tender uploaded"});
 })

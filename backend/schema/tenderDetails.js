@@ -30,9 +30,9 @@ const tenderDisplay = new mongoose.Schema({
     status:{
         type:String,
     },
-    pdfUpload:{
+    myFile:{
         type:String,
-        default:""
+        
     }
 });
 

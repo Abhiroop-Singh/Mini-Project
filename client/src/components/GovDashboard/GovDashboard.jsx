@@ -4,7 +4,7 @@ import "./GovDashboard.css";
 import {
   Box,
   Container,
-  Tabs,
+  Tabs, 
   Tab,
   TabList,
   TabPanels,
@@ -23,7 +23,7 @@ const [bidClosingDate, setBidClosingDate] = useState("");
 const [tenderDetails, setTenderDetails] = useState("");
 const [location, setLocation] = useState("");
 const [status, setStatus] = useState("");
-const [pdfUpload,setPdfUpload] = useState("");
+const [image,setImage] = useState({});
 
 
 const handleChange=(e)=>{
@@ -56,11 +56,19 @@ const handleChange=(e)=>{
 const handleSubmit=async(e)=>{
   e.preventDefault();
   const data = {tenderTitle,authority,referenceNumber,bidOpeningDate,bidClosingDate,
-  location,status,pdfUpload};
+  location,status,image};
   
-  const res = await axios.post('/api/tender/uploadTender',data);
+  const res=await fetch("/api/tender/uploadTender",{
+    method:"POST",
+    headers:{
+      "content-type":"application/json"
+    },
+    body:JSON.stringify(data)
+  })
+  const msg=await res.json();
+  console.log(msg)
 
-  console.log(res);
+
 }
 
   return (
@@ -226,7 +234,7 @@ const handleSubmit=async(e)=>{
           </Container>
 
           
-          <form action="">
+          <form action="/api/tender/uploadTender" method="POST" encType="multipart/form-Data">
           <input type="text" name="tenderTitle" value={tenderTitle} onChange={handleChange} placeholder="TenderTitle"/> 
           <input type="text" name="authority" value={authority} onChange={handleChange}placeholder="Authority"/>
           <input type="text" name="referenceNumber" value={referenceNumber} onChange={handleChange} placeholder="ReferenceNumber"/> 
@@ -235,11 +243,11 @@ const handleSubmit=async(e)=>{
           <input type="text" name="tenderDetails" value={tenderDetails} onChange={handleChange}placeholder="Tender Details"/> 
           <input type="text" name="location" value={location} onChange={handleChange} placeholder="Location"/>
           <input type="text" name="status" value={status} onChange={handleChange} placeholder="Status"/> 
-          <input type="file" name="pdfUpload" value={pdfUpload}></input>
-          <button onClick={handleSubmit}>submit</button>
+          <input type="file" name="image" id="testImage"></input>
+          <input type="submit"></input>
           </form>
         </div>
-      </div>
+      </div> 
     </>
   );
 };
