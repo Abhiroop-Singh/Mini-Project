@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import "./UserDashboard.css";
 
 const UserDashboard = () => {
-
-  const user_email = localStorage.getItem('email');
+  const user_email = localStorage.getItem("email");
 
   const [previousTender, setPreviousTender] = useState([]);
   const [biddedTender, setBiddedTender] = useState([]);
   const [allotedTender, setAllotedTender] = useState([]);
 
   const fetchTenders = async () => {
-    const res = await axios.post('/api/user/userTender', {
-      email: user_email
+    const res = await axios.post("/api/user/userTender", {
+      email: user_email,
     });
     setPreviousTender(res.data.message[0].previousTenders);
     setBiddedTender(res.data.message[0].biddedTenders);
@@ -64,47 +63,39 @@ const UserDashboard = () => {
         <div className="tender" id="allotudb">
           Allotted Tenders
         </div>
-        {
-          allotedTender.map((val)=>{
-            return (
-              <div className="udbdata">
-                <Link to={`/tenderDetails/${val}`}
-                  state={{tender:val}}
-                >
+        {allotedTender.map((val) => {
+          return (
+            <div className="udbdata">
+              <Link to={`/tenderDetails/${val}`} state={{ tender: val }}>
                 Reference Number: {val} <br />
-                </Link>
-              </div>
-            )
-          })
-        }
+              </Link>
+            </div>
+          );
+        })}
         <div className="tender" id="biddedudb">
           Bidded Tenders
         </div>
-        {
-          biddedTender.map((val)=>{
-            return (
-              <Link to={`/tenderDetails/${val}`}
-                  state={{tender:val}}
-                >
+        {biddedTender.map((val) => {
+          return (
+            <div className="udbdata">
+              <Link to={`/tenderDetails/${val}`} state={{ tender: val }}>
                 Reference Number: {val} <br />
-                </Link>
-            )
-          })
-        }
+              </Link>
+            </div>
+          );
+        })}
         <div className="tender" id="prevudb">
           Previous Tenders
         </div>
-        {
-          previousTender.map((val)=>{
-            return (
-              <Link to={`/tenderDetails/${val}`}
-                  state={{tender:val}}
-                >
+        {previousTender.map((val) => {
+          return (
+            <div className="udbdata">
+              <Link to={`/tenderDetails/${val}`} state={{ tender: val }}>
                 Reference Number: {val} <br />
-                </Link>
-            )
-          })
-        }
+              </Link>{" "}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

@@ -65,10 +65,7 @@ const TenderDetails = () => {
               <h1 className="texth2">TenderID : &nbsp;</h1>
               <p className="textp2"> value</p>
             </div>
-            <div className="textspan1">
-              <h1 className="texth2">Tender Type: &nbsp;</h1>
-              <p className="textp2"> value</p>
-            </div>
+           
             <div className="textspan1">
               <h1 className="texth2">Tender Category : &nbsp;</h1>
               <p className="textp2"> value</p>
@@ -110,10 +107,7 @@ const TenderDetails = () => {
               <h1 className="texth2">Name &nbsp;</h1>
               <p className="textp2"> value</p>
             </div>
-            <div className="textspan1">
-              <h1 className="texth2">Address &nbsp;</h1>
-              <p className="textp2"> value</p>
-            </div>
+           
           </div>
         </div>
       </div>

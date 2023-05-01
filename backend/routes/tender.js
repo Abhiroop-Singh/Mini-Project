@@ -30,7 +30,7 @@ router.get("/tenderdisplay",async(req,res) =>{
 router.post("/uploadTender",upload.single("image"),async(req,res)=>{
     const data = await tender.create({
         tenderTitle:req.body.tenderTitle,
-        authority:req.body.authority,
+        governingAuthority:req.body.authority,
         referenceNumber:req.body.referenceNumber,
         bidOpeningDate:req.body.bidOpeningDate,
         bidClosingDate:req.body.bidClosingDate,
