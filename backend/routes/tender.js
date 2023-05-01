@@ -41,7 +41,7 @@ router.post("/uploadTender",upload.single("image"),async(req,res)=>{
     });
     // res.status(200).json({success:true,message:"Tender uploaded"});
 
-    return res.redirect('/gov');
+    return res.redirect('/success');
 })
 
 router.post('/tenderdetails',async(req,res)=>{

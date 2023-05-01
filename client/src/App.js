@@ -21,7 +21,7 @@ function App() {
           <Route path="/review" element={<ReviewerDashboard />} />
           <Route path="/tenders" element={<TenderList />} />
           <Route path="/tenderdetails/:id" element={<TenderDetails />} />
-          <Route path="/splash" element={<Dummydata/>      } />
+          <Route path="/success" element={<Dummydata/>} />
         </Routes>
       </BrowserRouter>
     </>

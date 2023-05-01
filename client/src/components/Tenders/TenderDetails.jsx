@@ -55,7 +55,7 @@ const TenderDetails = () => {
             </div>
             <div className="textspan1">
               <h1 className="texth2">Organization chain : &nbsp;</h1>
-              <p className="textp2"> {tender.authority}</p>
+              <p className="textp2"> {tender.governingAuthority}</p>
             </div>
             <div className="textspan1">
               <h1 className="texth2">Tender RefNo. : &nbsp;</h1>
