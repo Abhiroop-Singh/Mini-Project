@@ -44,14 +44,6 @@ const Home = () => {
           />
         </div>
       </div>
-      <div className="brs">
-        <h1 className="brsh1">BROWSE TENDER</h1>
-        <div className="btnsbrs">
-          <button className="brsbt">Cities</button>
-          <button className="brsbt">State</button>
-          <button className="brsbt">Sector</button>
-        </div>
-      </div>
       <div className="ltd">
         <h1 className="brsh1">LATEST TENDERS</h1>
         <table>
