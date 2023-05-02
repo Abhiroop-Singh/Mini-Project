@@ -7,11 +7,12 @@ import axios from "axios";
 const TenderDetails = () => {
   const [tender, setTender] = useState({});
   const { state } = useLocation();
-  const [havebid, sethavebid] = useState(false);
+  // const [havebid, sethavebid] = useState(false);
   var usemail = localStorage.getItem("email");
-  if (usemail) {
-    sethavebid(true);
-  }
+  // if (usemail != null) {
+  //   sethavebid(true);
+  //   console.log(usemail);
+  // }
 
   const getTenderDetails = async () => {
     const referenceNumber = state.tender;
@@ -122,7 +123,7 @@ const TenderDetails = () => {
             {havebid ? "Upload a pdf &nbsp;" : "Login to place a bid"}
           </h1>
 
-          {havebid ? (
+          {usemail != null ? (
             <div className="upbidinner">
               <input type="file" name="" id="" />
               <input
