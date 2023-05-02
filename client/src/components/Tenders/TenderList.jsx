@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from "react";
 import "./Tender.css";
-import {useToast} from '@chakra-ui/react';
+import { useToast } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 const TenderList = () => {
-
-  const [tender,setTender] = useState([]);
+  const [tender, setTender] = useState([]);
   const toast = useToast();
-
-  const getTender = async()=>{
-    const res = await axios.get('/api/tender/tenderdisplay');
-    setTender(res.data.data);
+  const [havebid, sethavebid] = useState(false);
+  var usemail = localStorage.getItem("email");
+  if (usemail) {
+    sethavebid(true);
   }
+
+  const getTender = async () => {
+    const res = await axios.get("/api/tender/tenderdisplay");
+    setTender(res.data.data);
+  };
 
   useEffect(() => {
     getTender();
-  }, [])
-  
-  const success = ()=>{
+  }, []);
+
+  const success = () => {
     toast({
       title: "Bid Successfully Placed!",
       status: "success",
@@ -43,20 +47,28 @@ const TenderList = () => {
             </b>
           </u>
         </h1>
-        <ul>
-          <li>
-            <Link to={"/"}>Home</Link>
-          </li>
-          <li>
-            <Link to={"/bidderlog"}>Bidder Login/Signup</Link>
-          </li>
-          <li>
-            <Link to={"/govLogin"}>Gov Login</Link>
-          </li>
-          <li>
-            <Link to={"/reviewerLogin"}>Reviewer</Link>
-          </li>
-        </ul>
+        {havebid ? (
+          <ul>
+            <li>
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li>
+              <Link to={"/bidderlog"}>Bidder Login/Signup</Link>
+            </li>
+            <li>
+              <Link to={"/govLogin"}>Gov Login</Link>
+            </li>
+            <li>
+              <Link to={"/reviewerLogin"}>Reviewer</Link>
+            </li>
+          </ul>
+        ) : (
+          <ul>
+            <li>
+              <Link to={"/"}>Home</Link>
+            </li>
+          </ul>
+        )}
       </nav>
 
       {/* <div id="filtersection">
@@ -97,35 +109,39 @@ const TenderList = () => {
 
       <div className="mainlist">
         <h1>Active Tenders : </h1>
-        {
-          tender.map((val)=>{
-            return(
-              <div className="tenderlisting">
-                <div className="textp1">
-                  <div className="textspan">
-                    <h1 className="texth1">TenderID : &nbsp;</h1>
-                    <p className="textp1"> {val.referenceNumber}</p>
-                  </div>
-                  <div className="textspan">
-                    <h1 className="texth1">Organization Name : &nbsp;</h1>
-                    <p className="textp1"> {val.governingAuthority}</p>
-                  </div>
+        {tender.map((val) => {
+          return (
+            <div className="tenderlisting">
+              <div className="textp1">
+                <div className="textspan">
+                  <h1 className="texth1">TenderID : &nbsp;</h1>
+                  <p className="textp1"> {val.referenceNumber}</p>
                 </div>
-                <div className="textp2">
-                  <div className="textspan">
-                    <h1 className="texth1">Start Date : &nbsp;</h1>
-                    <p className="textp1"> {val.bidOpeningDate}</p>
-                  </div>
-                  <div className="textspan">
-                    <h1 className="texth1">Start Date : &nbsp;</h1>
-                    <p className="textp1"> {val.bidClosingDate}</p>
-                  </div>
+                <div className="textspan">
+                  <h1 className="texth1">Organization Name : &nbsp;</h1>
+                  <p className="textp1"> {val.governingAuthority}</p>
                 </div>
-                <button onClick={success}>Place A Bid</button>
               </div>
-            )
-          })
-        }
+              <div className="textp2">
+                <div className="textspan">
+                  <h1 className="texth1">Start Date : &nbsp;</h1>
+                  <p className="textp1"> {val.bidOpeningDate}</p>
+                </div>
+                <div className="textspan">
+                  <h1 className="texth1">Start Date : &nbsp;</h1>
+                  <p className="textp1"> {val.bidClosingDate}</p>
+                </div>
+              </div>
+              <Link
+                to={`/tenderDetails/${val.referenceNumber}`}
+                state={{ tender: val.referenceNumber }}
+                className="udlinkrl"
+              >
+                View More Details
+              </Link>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
