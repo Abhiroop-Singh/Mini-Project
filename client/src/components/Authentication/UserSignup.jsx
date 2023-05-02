@@ -13,28 +13,29 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const UserSignup = () => {
-  const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [companyName, setCompanyName] = useState("");
   const [reno, setReno] = useState("");
-  const [add, setAdd] = useState("");
   const [type, setType] = useState("");
-  const [show, setShow] = useState(false);
-  const [cpassword, setCpassword] = useState("");
   const [city, setCity] = useState("");
   const [state1, setstate1] = useState("");
-  const [bussinessType, setbussinessType] = useState("");
-  const [est_year, setest_year] = useState("");
-  const [panNo, setpanNo] = useState("");
   const [postalCode, setpostalCode] = useState("");
+  const [panNo, setpanNo] = useState("");
+  const [est_year, setest_year] = useState("");
+  const [bussinessType, setbussinessType] = useState("");
+  const [legal_status, setlegal_status] = useState("");
+  const [company_category, setcompany_category] = useState("");
+  const [add, setAdd] = useState("");
+  const [show, setShow] = useState(false);
+  const [cpassword, setCpassword] = useState("");
   const [phone, setphone] = useState("");
   const [designation, setdesignation] = useState("");
   const [dob, setdob] = useState("");
   const [name, setname] = useState("");
   const [contact, setcontact] = useState("");
   const [title, settitle] = useState("");
-  const [company_category, setcompany_category] = useState("");
-  const [legal_status, setlegal_status] = useState("");
+
   const handleClick = (e) => {
     if (e.target.name === "showpass") {
       setShow(!show);
