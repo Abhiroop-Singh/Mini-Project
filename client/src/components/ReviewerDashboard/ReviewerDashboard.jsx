@@ -9,7 +9,7 @@ const ReviewerDashboard = () => {
   const [biddingTender, setBiddingTender] = useState([]);
   const [allotedTender, setAllotedTender] = useState([]);
 
-  const getTenders = async () => {
+  const getTenders = async () => { 
     const res = await axios.get('/api/tender/tenderdisplay');
     const getUser = await axios.get('/api/user/getUser');
     let a = [], b = [];
@@ -19,7 +19,7 @@ const ReviewerDashboard = () => {
     localStorage.setItem('users', JSON.stringify(b));
 
     await getTenderStatus();
-  }
+  } 
 
   const getTenderStatus = async () => {
     const tenderData = JSON.parse(localStorage.getItem('tenders'));
@@ -66,7 +66,7 @@ const ReviewerDashboard = () => {
   useEffect(() => {
     getTenders(); 
   }, []);
-  
+
   const toast = useToast();
 
   const success = ()=>{
