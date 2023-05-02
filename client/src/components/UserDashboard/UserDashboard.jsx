@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./UserDashboard.css";
+import Counter from "../counter/Counter";
 
 const UserDashboard = () => {
   const user_email = localStorage.getItem("email");
@@ -118,6 +119,7 @@ const UserDashboard = () => {
       <div className="udbmain">
         <h1 id="udbnamehead">Hello {username}!</h1>
         <h1 id="welcomeudb">Welcome, Sir!</h1>
+        <Counter />
         <div className="tender" id="allotudb">
           Allotted Tenders
         </div>
