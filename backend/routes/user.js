@@ -57,4 +57,9 @@ router.post('/userTender',async(req,res)=>{
     res.status(200).json({success:true,message:data});
 });
 
+router.get('/getUser',async(req,res)=>{
+    const val = await user.find({});
+    res.status(200).json({success:true,data:val});
+});
+
 module.exports = router;
