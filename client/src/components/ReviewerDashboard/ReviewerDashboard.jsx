@@ -1,10 +1,61 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useEffect,React, useState } from "react";
+import { Link, json } from "react-router-dom";
 import "./ReviewerDashboard.css";
+import axios from "axios";
 
 const ReviewerDashboard = () => {
+
+  const [biddingTender,setBiddingTender] = useState([]);
+  // const [allotedTender,setAllotedTender] = useState();
+
+  const getTenders = async()=>{
+    const res = await axios.get('/api/tender/tenderdisplay');
+    const getUser = await axios.get('/api/user/getUser');
+    let a=[],b=[];
+    a=res.data.data;
+    b=getUser.data.data;
+    localStorage.setItem('tenders',JSON.stringify(a));
+    localStorage.setItem('users',JSON.stringify(b));
+    
+    await getTenderStatus();
+  }
+
+  const getTenderStatus = async()=>{
+    const tenderData =JSON.parse(localStorage.getItem('tenders'));
+    const users = JSON.parse(localStorage.getItem('users'));
+
+    let allot=[],bid=[];
+    for(let i=0;i<tenderData.length;i++){ 
+      if(tenderData[i].status==='bidding'){
+        bid.push(tenderData[i].referenceNumber);
+      }
+      else{
+        allot.push(tenderData[i].referenceNumber);
+      }
+    }
+
+    let bidUser=[];
+    for(let i=0;i<users.length;i++){
+      for(let j=0;j<users[i].biddedTenders.length;j++){
+        for(let k=0;k<bid.length;k++){
+          if(users[i].biddedTenders[j]===bid[k]){
+            bidUser.push(users[i]);
+          }
+        }
+      }
+    }
+    
+    setBiddingTender(bidUser);
+    console.log(biddingTender);
+  };
+
+  useEffect(() => {
+    getTenders();
+  }, [])
+  
   return (
     <div>
+
       <nav>
         <div className="navdet">
           <u>
@@ -35,6 +86,7 @@ const ReviewerDashboard = () => {
           </li>
         </ul>
       </nav>
+
       <div className="udbmain" id="main1">
         <h1 id="udbnamehead">Hello Ravindra!</h1>
         <h1 id="welcomeudb">Welcome, Sir!</h1>

@@ -51,6 +51,7 @@ const fetchData=async()=>{
   setClosed(c);
   
 }
+
 const handleChange=(e)=>{
   if(e.target.name==="tenderTitle"){
     setTenderTitle(e.target.value)
