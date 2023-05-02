@@ -20,5 +20,18 @@ router.post('/govr_login',async(req,res)=>{
     }
 });
 
-
+router.post("/govr_signup",async(req,res)=>{
+    const check =await gov_reviewer.findOne({email:req.body.email})
+    if(!check){
+        var password = await bcrypt.hash(req.body.password,10);
+        const per=await gov_reviewer.create({ 
+            email:req.body.email,
+            password:password
+        })
+        res.status(200).json({success:true,message:"gov_r registered successfully"});
+    }
+    else{
+        res.status(400).json({success:false,message:"already exist"})
+    }
+})
 module.exports=router

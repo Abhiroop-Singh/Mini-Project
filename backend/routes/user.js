@@ -53,7 +53,7 @@ router.post('/login',async(req,res)=>{
 });
 
 router.post('/userTender',async(req,res)=>{
-    const data = await user.find({email:req.body.email}); 
+    const data = await user.find({email:req.body.email});
     res.status(200).json({success:true,message:data});
 });
 
