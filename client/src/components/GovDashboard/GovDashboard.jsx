@@ -37,7 +37,7 @@ const GovDashboard = () => {
     const res = await axios.get("/api/tender/tenderdisplay");
     const data = res.data.data;
     for (let i = 0; i < data.length; i++) {
-      if (data[i].status === "active") {
+      if (data[i].status === "bidding") {
         a.push(data[i]);
       } else if (data[i].status === "alloted") {
         b.push(data[i]);

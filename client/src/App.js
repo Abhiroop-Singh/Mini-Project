@@ -21,7 +21,7 @@ function App() {
           <Route path="/user" element={<UserDashboard />} />
           <Route path="/review" element={<ReviewerDashboard />} />
           <Route path="/tenders" element={<TenderList />} />
-          <Route path="/tenderdetails/:id" element={<TenderDetails />} />
+          <Route path="/tenderdetails/:id" element={<TenderDetails />} /> 
           <Route path="/success" element={<Dummydata />} />
           <Route path="/govLogin" element={<GovLogin />} />
         </Routes>

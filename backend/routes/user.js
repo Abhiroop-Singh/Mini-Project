@@ -53,13 +53,8 @@ router.post('/login',async(req,res)=>{
 });
 
 router.post('/userTender',async(req,res)=>{
-    const data = await user.find({email:req.body.email}); 
+    const data = await user.find({email:req.body.email});
     res.status(200).json({success:true,message:data});
-});
-
-router.get('/getUser',async(req,res)=>{
-    const val = await user.find({});
-    res.status(200).json({success:true,data:val});
 });
 
 module.exports = router;
