@@ -11,8 +11,7 @@ const ReviewerDashboard = () => {
   const getTenders = async () => {
     const res = await axios.get("/api/tender/tenderdisplay");
     const getUser = await axios.get("/api/user/getUser");
-    let a = [],
-      b = [];
+    let a = [],b = [];
     a = res.data.data;
     b = getUser.data.data;
     localStorage.setItem("tenders", JSON.stringify(a));

@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import "./Tender.css";
+import { useToast } from "@chakra-ui/react";
 import { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const TenderDetails = () => {
+  const navigate = useNavigate();
   const [tender, setTender] = useState({});
   const { state } = useLocation();
-  // const [havebid, sethavebid] = useState(false);
+  
   var usemail = localStorage.getItem("email");
-  // if (usemail != null) {
-  //   sethavebid(true);
-  //   console.log(usemail);
-  // }
 
   const getTenderDetails = async () => {
     const referenceNumber = state.tender;
@@ -22,9 +20,23 @@ const TenderDetails = () => {
     setTender(res.data.data);
     console.log(res.data.data);
   };
+
   useEffect(() => {
     getTenderDetails();
   }, []);
+
+  const toast = useToast();
+
+  const success = () => {
+    toast({
+      title: "Bid Placed Successfully!",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+      position: "top-left",
+    });
+    navigate('/user');
+  };
 
   return (
     <div>
@@ -63,14 +75,10 @@ const TenderDetails = () => {
               <h1 className="texth2">Tender RefNo. : &nbsp;</h1>
               <p className="textp2"> {tender.referenceNumber}</p>
             </div>
-            <div className="textspan1">
-              <h1 className="texth2">TenderID : &nbsp;</h1>
-              <p className="textp2"> value</p>
-            </div>
 
             <div className="textspan1">
-              <h1 className="texth2">Tender Category : &nbsp;</h1>
-              <p className="textp2"> value</p>
+              <h1 className="texth2">Tender Title : &nbsp;</h1>
+              <p className="textp2"> {tender.tenderTitle}</p>
             </div>
           </div>
           <div className="listingdata">
@@ -109,34 +117,16 @@ const TenderDetails = () => {
             </div>
             <div className="textspan1">
               <h1 className="texth2">Name &nbsp;</h1>
-              <p className="textp2"> value</p>
+              <p className="textp2"> {tender.governingAuthority}</p>
             </div>
           </div>
         </div>
       </div>
       <div id="upbid">
         <div className="headingslisting" id="upbid1">
+        <button onClick={success}>
           Place A Bid
-        </div>
-        <div className="textspan1">
-          <h1 className="texth2" id="h12323">
-            {usemail != null ? "Upload a pdf &nbsp;" : "Login to place a bid"}
-          </h1>
-
-          {usemail != null ? (
-            <div className="upbidinner">
-              <input type="file" name="" id="" />
-              <input
-                type="submit"
-                value="Submit"
-                className="submitbuttonbidup"
-              />
-            </div>
-          ) : (
-            <Link to={"/bidderlog"} className="submitbuttonbidup">
-              Login
-            </Link>
-          )}
+        </button>
         </div>
       </div>
     </div>
