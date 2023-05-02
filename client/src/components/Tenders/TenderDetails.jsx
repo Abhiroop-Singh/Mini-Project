@@ -120,7 +120,7 @@ const TenderDetails = () => {
         </div>
         <div className="textspan1">
           <h1 className="texth2" id="h12323">
-            {havebid ? "Upload a pdf &nbsp;" : "Login to place a bid"}
+            {usemail != null ? "Upload a pdf &nbsp;" : "Login to place a bid"}
           </h1>
 
           {usemail != null ? (
