@@ -71,6 +71,9 @@ const UserDashboard = () => {
     setBiddedTender(bidInfo);
     setAllotedTender(allotInfo);
   };
+  const logout=()=>{
+    localStorage.removeItem("email")
+  }
 
   useEffect(() => {
     fetchTenders();
@@ -104,7 +107,7 @@ const UserDashboard = () => {
             </Link>
           </li>
           <li>
-            <Link to={"/"}>Logout</Link>
+            <Link to={"/"} onClick={logout}>Logout</Link>
           </li>
         </ul>
       </nav>
