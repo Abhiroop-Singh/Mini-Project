@@ -8,6 +8,7 @@ import ReviewerDashboard from "./components/ReviewerDashboard/ReviewerDashboard"
 import TenderList from "./components/Tenders/TenderList";
 import TenderDetails from "./components/Tenders/TenderDetails";
 import Dummydata from "./components/GovDashboard/Dummydata";
+import GovLogin from "./components/Authentication/GovLogin";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
           <Route path="/review" element={<ReviewerDashboard />} />
           <Route path="/tenders" element={<TenderList />} />
           <Route path="/tenderdetails/:id" element={<TenderDetails />} />
-          <Route path="/success" element={<Dummydata/>} />
+          <Route path="/success" element={<Dummydata />} />
+          <Route path="/govLogin" element={<GovLogin />} />
         </Routes>
       </BrowserRouter>
     </>

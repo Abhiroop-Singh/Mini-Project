@@ -11,24 +11,35 @@ const Dummydata = () => {
 
     interval = setInterval(() => {
       if (seconds > 0) {
-        setSeconds(seconds => seconds - 1);
+        setSeconds((seconds) => seconds - 1);
       }
     }, 1000);
 
     setTimeout(() => {
-      navigate('/gov');
+      navigate("/gov");
     }, 5000);
-    return () => {clearInterval(interval);};
+    return () => {
+      clearInterval(interval);
+    };
   }, [seconds]);
 
   return (
-    <div id="dummy">Success
-    <br></br>
-      {seconds}s
-    </div>
-
+    <>
+      <div id="dummy">
+        Success
+        <br></br>
+      </div>
+      <div className="redirectiontext">
+        <span>
+          <p className="successpara">Redirecting in </p>
+        </span>
+        <span>{seconds}</span>
+        <span>
+          <p className="successpara">s </p>
+        </span>
+      </div>
+    </>
   );
-
 };
 
 export default Dummydata;
