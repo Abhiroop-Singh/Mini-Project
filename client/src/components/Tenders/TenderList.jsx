@@ -42,12 +42,13 @@ const TenderList = () => {
         <h1>
           <u>
             <b>
-              <img
-                src={require("../../Assets/images/minilogo.png")}
-                alt="mini"
-                className="navimg"
-              />
-              <Link to={"/"}></Link>
+              <Link to={"/"}>
+                <img
+                  src={require("../../Assets/images/minilogo.png")}
+                  alt="mini"
+                  className="navimg"
+                />
+              </Link>
             </b>
           </u>
         </h1>

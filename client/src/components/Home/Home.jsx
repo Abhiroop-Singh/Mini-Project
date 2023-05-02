@@ -16,6 +16,7 @@ const Home = () => {
 
   const logout = () => {
     localStorage.removeItem("email");
+    window.reload();
   };
 
   return (

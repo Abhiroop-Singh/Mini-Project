@@ -9,7 +9,7 @@ const TenderDetails = () => {
   const navigate = useNavigate();
   const [tender, setTender] = useState({});
   const { state } = useLocation();
-  
+
   var usemail = localStorage.getItem("email");
 
   const getTenderDetails = async () => {
@@ -40,7 +40,7 @@ const TenderDetails = () => {
       isClosable: true,
       position: "top-left",
     });
-    navigate('/user');
+    navigate("/");
   };
 
   return (
@@ -145,9 +145,21 @@ const TenderDetails = () => {
       </div>
       <div id="upbid">
         <div className="headingslisting" id="upbid1">
-        <button onClick={success}>
           Place A Bid
-        </button>
+        </div>
+        <div className="textspan1" id="absbh">
+          <h1 className="texth2" id="h12323">
+            To place a bid{" "}
+          </h1>
+          {usemail ? (
+            <button className="submitbuttonbidup" onClick={success}>
+              Submit Bid
+            </button>
+          ) : (
+            <Link to={"/bidderlog"} className="upbidinner">
+              <button className="submitbuttonbidup">Login</button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
