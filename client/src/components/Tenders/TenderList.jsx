@@ -32,6 +32,10 @@ const TenderList = () => {
     });
   };
 
+  const logout = () => {
+    localStorage.removeItem("email");
+  };
+
   return (
     <div>
       <nav>
@@ -65,7 +69,15 @@ const TenderList = () => {
         ) : (
           <ul>
             <li>
+              <Link to={"/user"}>Dashboard</Link>
+            </li>
+            <li>
               <Link to={"/"}>Home</Link>
+            </li>
+            <li>
+              <Link to={"/"} onClick={logout}>
+                Logout
+              </Link>
             </li>
           </ul>
         )}
