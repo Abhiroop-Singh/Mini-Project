@@ -16,7 +16,7 @@ import UserSignup from "../Authentication/UserSignup";
 const BidderLog = () => {
   return (
     <div id="pplogin">
-      <Container maxW="70rem">
+      <Container maxW="40rem">
         <Box
           display="flex"
           justifyContent="center"

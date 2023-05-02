@@ -32,7 +32,7 @@ const UserLogin = () => {
     } else {
       const data = { email, password };
 
-      const res = await fetch("/api/login", {
+      const res = await fetch("/api/user/login", {
         method: "POST",
         headers: {
           //always use this
@@ -52,7 +52,8 @@ const UserLogin = () => {
           isClosable: true,
           position: "top-left",
         });
-        navigate("/");
+        localStorage.setItem("email", email);
+        navigate("/user");
       } else {
         toast({
           title: "Error!",

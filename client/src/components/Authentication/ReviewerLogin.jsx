@@ -14,7 +14,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
-const GovLogin = () => {
+const ReviewerLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
@@ -54,7 +54,7 @@ const GovLogin = () => {
           isClosable: true,
           position: "top-left",
         });
-        navigate("/gov");
+        navigate("/reviewer");
       } else {
         toast({
           title: "Error!",
@@ -66,7 +66,6 @@ const GovLogin = () => {
       }
     }
   };
-
   return (
     <div id="pplogin">
       <Container maxW="40rem">
@@ -82,7 +81,7 @@ const GovLogin = () => {
           borderColor={"#ececec"}
         >
           <Text fontSize={"4xl"} fontFamily="Work Sans">
-            Government Login
+            Bid Reviewer's Login
           </Text>
         </Box>
         <Box
@@ -98,7 +97,7 @@ const GovLogin = () => {
             <FormControl isRequired>
               <FormLabel>e-mail</FormLabel>
               <Input
-                type="text"
+                type="email"
                 placeholder="Enter Organization Id"
                 value={email}
                 name="email"
@@ -144,4 +143,4 @@ const GovLogin = () => {
   );
 };
 
-export default GovLogin;
+export default ReviewerLogin;
