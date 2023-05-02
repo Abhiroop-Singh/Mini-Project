@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 const Home = () => {
+  const [tenders, setTenders] = useState([])
+  useEffect(() => {
+    fetchTenders();
+   
+  }, [])
+  const fetchTenders=async()=>{
+    const a=await axios.get("/api/tender/tenderdisplay");
+    // console.log(a.data.data)
+    setTenders(a.data.data)
+  }
   return (
     <div>
       <nav>
@@ -50,33 +61,18 @@ const Home = () => {
           <tr>
             <th>Tender Title</th>
             <th>Reference No.</th>
-            <th>Closing Date</th>
-            <th>Bid Opening Date</th>
+            <th>Status</th>
+            <th>Governing Authority</th>
           </tr>
-          <tr>
-            <td>Tender 1</td>
-            <td>`123432S</td>
-            <td>23-03-23</td>
-            <td>12-02-23</td>
+          {tenders.map((val)=>{
+            return <tr>
+            <td>{val.tenderTitle}</td>
+            <td>{val.referenceNumber}</td>
+            <td>{val.status}</td>
+            <td>{val.governingAuthority}</td>
           </tr>
-          <tr>
-            <td>Tender 1</td>
-            <td>`123432S</td>
-            <td>23-03-23</td>
-            <td>12-02-23</td>
-          </tr>
-          <tr>
-            <td>Tender 1</td>
-            <td>`123432S</td>
-            <td>23-03-23</td>
-            <td>12-02-23</td>
-          </tr>
-          <tr>
-            <td>Tender 1</td>
-            <td>`123432S</td>
-            <td>23-03-23</td>
-            <td>12-02-23</td>
-          </tr>
+          })}
+          
         </table>
       </div>
     </div>
