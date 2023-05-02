@@ -25,6 +25,11 @@ const TenderDetails = () => {
     getTenderDetails();
   }, []);
 
+  var usemail = localStorage.getItem("email");
+  const logout = () => {
+    localStorage.removeItem("email");
+  };
+
   const toast = useToast();
 
   const success = () => {
@@ -54,11 +59,27 @@ const TenderDetails = () => {
             </b>
           </u>
         </h1>
-        <ul>
-          <li>
-            <Link to={"/"}>Homepage</Link>
-          </li>
-        </ul>
+        {usemail ? (
+          <ul>
+            <li>
+              <Link to={"/user"}>Dashboard</Link>
+            </li>
+            <li>
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li>
+              <Link to={"/"} onClick={logout}>
+                Logout
+              </Link>
+            </li>
+          </ul>
+        ) : (
+          <ul>
+            <li>
+              <Link to={"/"}>Homepage</Link>
+            </li>
+          </ul>
+        )}
       </nav>
 
       <div className="maindetailstend">

@@ -7,11 +7,11 @@ import axios from "axios";
 const TenderList = () => {
   const [tender, setTender] = useState([]);
   const toast = useToast();
-  const [havebid, sethavebid] = useState(false);
+  // const [havebid, sethavebid] = useState(false);
   var usemail = localStorage.getItem("email");
-  if (usemail) {
-    sethavebid(true);
-  }
+  // if (usemail) {
+  //   sethavebid(true);
+  // }
 
   const getTender = async () => {
     const res = await axios.get("/api/tender/tenderdisplay");
@@ -32,6 +32,10 @@ const TenderList = () => {
     });
   };
 
+  const logout = () => {
+    localStorage.removeItem("email");
+  };
+
   return (
     <div>
       <nav>
@@ -47,7 +51,7 @@ const TenderList = () => {
             </b>
           </u>
         </h1>
-        {havebid ? (
+        {usemail == null ? (
           <ul>
             <li>
               <Link to={"/"}>Home</Link>
@@ -65,7 +69,15 @@ const TenderList = () => {
         ) : (
           <ul>
             <li>
+              <Link to={"/user"}>Dashboard</Link>
+            </li>
+            <li>
               <Link to={"/"}>Home</Link>
+            </li>
+            <li>
+              <Link to={"/"} onClick={logout}>
+                Logout
+              </Link>
             </li>
           </ul>
         )}

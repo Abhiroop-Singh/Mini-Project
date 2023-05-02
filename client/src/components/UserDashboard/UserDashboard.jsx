@@ -71,9 +71,9 @@ const UserDashboard = () => {
     setBiddedTender(bidInfo);
     setAllotedTender(allotInfo);
   };
-  const logout=()=>{
-    localStorage.removeItem("email")
-  }
+  const logout = () => {
+    localStorage.removeItem("email");
+  };
 
   useEffect(() => {
     fetchTenders();
@@ -85,12 +85,13 @@ const UserDashboard = () => {
         <div className="navdet">
           <u>
             <b>
-              <img
-                src={require("../../Assets/images/minilogo.png")}
-                alt="mini"
-                className="navimg"
-              />
-              <Link to={"/"}></Link>
+              <Link to={"/"}>
+                <img
+                  src={require("../../Assets/images/minilogo.png")}
+                  alt="mini"
+                  className="navimg"
+                />
+              </Link>
             </b>
           </u>
           <h1>Bidder's Dashboard</h1>
@@ -107,7 +108,9 @@ const UserDashboard = () => {
             </Link>
           </li>
           <li>
-            <Link to={"/"} onClick={logout}>Logout</Link>
+            <Link to={"/"} onClick={logout}>
+              Logout
+            </Link>
           </li>
         </ul>
       </nav>
