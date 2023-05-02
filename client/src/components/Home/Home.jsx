@@ -8,20 +8,28 @@ const Home = () => {
         <h1>
           <u>
             <b>
-              <img src={require("../../Assets/images/minilogo.png")} alt="mini" className="navimg"/>
-              <Link to={"/"}></Link>
+              <Link to={"/"}>
+                <img
+                  src={require("../../Assets/images/minilogo.png")}
+                  alt="mini"
+                  className="navimg"
+                />
+              </Link>
             </b>
           </u>
         </h1>
         <ul>
           <li>
-            <Link to={"/"}>Contract Award</Link>
+            <Link to={"/tenders"}>All Tenders</Link>
           </li>
           <li>
-            <Link to={"/"}>Publish Tender</Link>
+            <Link to={"/bidderlog"}>User Login/Signup</Link>
           </li>
           <li>
-            <Link to={"/bidderlog"}>Bidder Login/Signup</Link>
+            <Link to={"/reviewerLogin"}>Reviewer</Link>
+          </li>
+          <li>
+            <Link to={"/govLogin"}>Gov Login</Link>
           </li>
         </ul>
       </nav>
@@ -77,7 +85,6 @@ const Home = () => {
             <td>23-03-23</td>
             <td>12-02-23</td>
           </tr>
-         
         </table>
       </div>
     </div>

@@ -9,6 +9,7 @@ import TenderList from "./components/Tenders/TenderList";
 import TenderDetails from "./components/Tenders/TenderDetails";
 import Dummydata from "./components/GovDashboard/Dummydata";
 import GovLogin from "./components/Authentication/GovLogin";
+import ReviewerLogin from "./components/Authentication/ReviewerLogin";
 
 function App() {
   return (
@@ -19,11 +20,12 @@ function App() {
           <Route path="/bidderlog" element={<BidderLog />} />
           <Route path="/gov" element={<GovDashboard />} />
           <Route path="/user" element={<UserDashboard />} />
-          <Route path="/review" element={<ReviewerDashboard />} />
+          <Route path="/reviewer" element={<ReviewerDashboard />} />
           <Route path="/tenders" element={<TenderList />} />
           <Route path="/tenderdetails/:id" element={<TenderDetails />} />
           <Route path="/success" element={<Dummydata />} />
           <Route path="/govLogin" element={<GovLogin />} />
+          <Route path="/reviewerLogin" element={<ReviewerLogin />} />
         </Routes>
       </BrowserRouter>
     </>

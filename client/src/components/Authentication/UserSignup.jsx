@@ -16,9 +16,25 @@ const UserSignup = () => {
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [reno, setReno] = useState("");
+  const [add, setAdd] = useState("");
+  const [type, setType] = useState("");
   const [show, setShow] = useState(false);
   const [cpassword, setCpassword] = useState("");
-
+  const [city, setCity] = useState("");
+  const [state1, setstate1] = useState("");
+  const [bussinessType, setbussinessType] = useState("");
+  const [est_year, setest_year] = useState("");
+  const [panNo, setpanNo] = useState("");
+  const [postalCode, setpostalCode] = useState("");
+  const [phone, setphone] = useState("");
+  const [designation, setdesignation] = useState("");
+  const [dob, setdob] = useState("");
+  const [name, setname] = useState("");
+  const [contact, setcontact] = useState("");
+  const [title, settitle] = useState("");
+  const [company_category, setcompany_category] = useState("");
+  const [legal_status, setlegal_status] = useState("");
   const handleClick = (e) => {
     if (e.target.name === "showpass") {
       setShow(!show);
@@ -87,6 +103,25 @@ const UserSignup = () => {
           />
         </FormControl>
         <FormControl isRequired>
+          <FormLabel>Type:</FormLabel>
+          <Input
+            placeholder="Enter type"
+            value={type}
+            name="type"
+            onChange={(e) => setType(e.target.value)}
+          />
+        </FormControl>
+
+        <FormControl isRequired>
+          <FormLabel>Registration No.:</FormLabel>
+          <Input
+            placeholder="Enter your company Registration No."
+            value={reno}
+            name="reno"
+            onChange={(e) => setReno(e.target.value)}
+          />
+        </FormControl>
+        <FormControl isRequired>
           <FormLabel>e-mail</FormLabel>
           <Input
             type="email"
@@ -96,7 +131,143 @@ const UserSignup = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </FormControl>
-
+        <FormControl isRequired>
+          <FormLabel>Registered address:</FormLabel>
+          <Input
+            placeholder="Enter your company Registered address"
+            value={add}
+            name="add"
+            onChange={(e) => setAdd(e.target.value)}
+          />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>City:</FormLabel>
+          <Input
+            placeholder="Enter City"
+            value={city}
+            name="city"
+            onChange={(e) => setCity(e.target.value)}
+          />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>State:</FormLabel>
+          <Input
+            placeholder="Enter State"
+            value={state1}
+            name="state1"
+            onChange={(e) => setstate1(e.target.value)}
+          />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>Bussiness Type:</FormLabel>
+          <Input
+            placeholder="Enter your Bussiness Type"
+            value={bussinessType}
+            name="bussinessType"
+            onChange={(e) => setbussinessType(e.target.value)}
+          />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>Establishment Year:</FormLabel>
+          <Input
+            placeholder="Enter your Establishment Year"
+            value={est_year}
+            name="est_year"
+            type="date"
+            onChange={(e) => setest_year(e.target.value)}
+          />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>PAN No.:</FormLabel>
+          <Input
+            placeholder="Enter your PAN No."
+            value={panNo}
+            name="panNo"
+            onChange={(e) => setpanNo(e.target.value)}
+          />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>Designation:</FormLabel>
+          <Input
+            placeholder="Enter your Designation"
+            value={designation}
+            name="designation"
+            onChange={(e) => setdesignation(e.target.value)}
+          />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>Phone:</FormLabel>
+          <Input
+            placeholder="Enter phone"
+            value={phone}
+            name="phone"
+            onChange={(e) => setphone(e.target.value)}
+          />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>Postal-Code:</FormLabel>
+          <Input
+            placeholder="Enter postalCode"
+            value={postalCode}
+            name="postalCode"
+            onChange={(e) => setpostalCode(e.target.value)}
+          />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>DOB:</FormLabel>
+          <Input
+            placeholder="Enter dob"
+            type="date"
+            value={dob}
+            name="dob"
+            onChange={(e) => setdob(e.target.value)}
+          />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>Name:</FormLabel>
+          <Input
+            placeholder="Enter your name"
+            value={name}
+            name="name"
+            onChange={(e) => setname(e.target.value)}
+          />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>Contact:</FormLabel>
+          <Input
+            placeholder="Enter your contact"
+            value={contact}
+            name="contact"
+            onChange={(e) => setcontact(e.target.value)}
+          />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>Legal Status:</FormLabel>
+          <Input
+            placeholder="Enter your legal status"
+            value={legal_status}
+            name="legal_status"
+            onChange={(e) => setlegal_status(e.target.value)}
+          />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>Company Category:</FormLabel>
+          <Input
+            placeholder="Enter your company category"
+            value={company_category}
+            name="company_category"
+            onChange={(e) => setcompany_category(e.target.value)}
+          />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>Title:</FormLabel>
+          <Input
+            placeholder="Enter title"
+            value={title}
+            name="title"
+            onChange={(e) => settitle(e.target.value)}
+          />
+        </FormControl>
         <FormControl isRequired>
           <FormLabel>Password</FormLabel>
           <InputGroup>
