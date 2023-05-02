@@ -25,7 +25,7 @@
   width: 2rem;
   height: 2rem;
 }
-#gbnavul { 
+#gbnavul {
   justify-content: space-around;
   width: 10%;
 }
@@ -33,12 +33,69 @@
   width: 100%;
   margin: 0;
 }
-#dummy{
-  font-size:5rem;
-  color:green;
-  margin-top:25rem;
+#dummy {
+  font-size: 5rem;
+  color: green;
+  margin-top: 25rem;
   line-height: 5rem;
-  margin:auto;
-  width:fit-content;
-  padding-top:15rem;
+  margin: auto;
+  width: fit-content;
+  padding-top: 15rem;
+}
+#govform {
+  width: 60%;
+  margin: auto;
+  padding: 2rem 1rem;
+  margin-top: 5rem;
+  border: 2px solid blanchedalmond;
+  border-radius: 7px;
+  min-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+  background-color: rgb(246, 245, 245);
+}
+.govforminput {
+  width: 80%;
+  margin: auto;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.textareagov {
+  min-width: 50%;
+  border: 0.8px solid black;
+  padding: 1px 4px;
+  border-top: 0.4px solid rgb(182, 182, 182);
+  border-right: 0.4px solid rgb(182, 182, 182);
+  border-radius: 4px;
+}
+.govSubmit {
+  background-color: green;
+  color: white;
+  width: 25%;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+.innergovip {
+  min-width: 40%;
+  border: 0.8px solid black;
+  padding: 1px 4px;
+  border-top: 0.4px solid rgb(182, 182, 182);
+  border-right: 0.4px solid rgb(182, 182, 182);
+  border-radius: 4px;
+}
+.showbutton {
+  width: 18%;
+  background-color: rgb(67, 116, 248);
+  color: white;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  margin-top: 3rem;
+  margin-left: 0.8rem;
+  font-family: "Inter";
 }
