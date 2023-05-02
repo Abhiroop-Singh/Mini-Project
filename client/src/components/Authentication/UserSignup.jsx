@@ -78,7 +78,7 @@ const UserSignup = () => {
           isClosable: true,
           position: "top-left",
         });
-        navigate("/bidderlog");
+        navigate("/user");
       } else {
         toast({
           title: "Error!",

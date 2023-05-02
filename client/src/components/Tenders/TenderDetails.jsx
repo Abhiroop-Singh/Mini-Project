@@ -1,48 +1,44 @@
 import React, { useState } from "react";
 import "./Tender.css";
 import { useEffect } from "react";
-import { Link,useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 
 const TenderDetails = () => {
+  const [tender, setTender] = useState({});
+  const { state } = useLocation();
 
-  const [tender,setTender] = useState({});
-  const {state} = useLocation();
-
-  const getTenderDetails = async()=>{
-    const referenceNumber=state.tender;
-    const res = await axios.post('/api/tender/tenderdetails',{refno:referenceNumber});
+  const getTenderDetails = async () => {
+    const referenceNumber = state.tender;
+    const res = await axios.post("/api/tender/tenderdetails", {
+      refno: referenceNumber,
+    });
     setTender(res.data.data);
     console.log(res.data.data);
-  }
+  };
   useEffect(() => {
     getTenderDetails();
-  }, [])
-  
+  }, []);
+
   return (
     <div>
       <nav>
         <h1>
           <u>
             <b>
-              <img
-                src={require("../../Assets/images/minilogo.png")}
-                alt="mini"
-                className="navimg"
-              />
-              <Link to={"/"}></Link>
+              <Link to={"/"}>
+                <img
+                  src={require("../../Assets/images/minilogo.png")}
+                  alt="mini"
+                  className="navimg"
+                />
+              </Link>
             </b>
           </u>
         </h1>
         <ul>
           <li>
-            <Link to={"/"}>Contract Award</Link>
-          </li>
-          <li>
-            <Link to={"/"}>Publish Tender</Link>
-          </li>
-          <li>
-            <Link to={"/bidderlog"}>Bidder Login/Signup</Link>
+            <Link to={"/"}>Homepage</Link>
           </li>
         </ul>
       </nav>
@@ -65,7 +61,7 @@ const TenderDetails = () => {
               <h1 className="texth2">TenderID : &nbsp;</h1>
               <p className="textp2"> value</p>
             </div>
-           
+
             <div className="textspan1">
               <h1 className="texth2">Tender Category : &nbsp;</h1>
               <p className="textp2"> value</p>
@@ -77,9 +73,11 @@ const TenderDetails = () => {
             </div>
             <div className="textspan1">
               <h1 className="texth2">TenderNotice1.pdf &nbsp;</h1>
-              <a href={`http://localhost:4000/uploads/${tender.myFile}`} 
-              className="linkpdf1"
-              target="blank">
+              <a
+                href={`http://localhost:4000/uploads/${tender.myFile}`}
+                className="linkpdf1"
+                target="blank"
+              >
                 Download
               </a>
             </div>
@@ -107,7 +105,6 @@ const TenderDetails = () => {
               <h1 className="texth2">Name &nbsp;</h1>
               <p className="textp2"> value</p>
             </div>
-           
           </div>
         </div>
       </div>

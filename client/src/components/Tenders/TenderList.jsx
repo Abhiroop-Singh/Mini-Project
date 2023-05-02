@@ -20,13 +20,16 @@ const TenderList = () => {
         </h1>
         <ul>
           <li>
-            <Link to={"/"}>Contract Award</Link>
-          </li>
-          <li>
-            <Link to={"/"}>Publish Tender</Link>
+            <Link to={"/"}>Home</Link>
           </li>
           <li>
             <Link to={"/bidderlog"}>Bidder Login/Signup</Link>
+          </li>
+          <li>
+            <Link to={"/govLogin"}>Gov Login</Link>
+          </li>
+          <li>
+            <Link to={"/reviewerLogin"}>Reviewer</Link>
           </li>
         </ul>
       </nav>
