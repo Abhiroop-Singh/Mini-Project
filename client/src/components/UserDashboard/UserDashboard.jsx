@@ -109,6 +109,9 @@ const UserDashboard = () => {
             </Link>
           </li>
           <li>
+            <Link to={"/"}>Home</Link>
+          </li>
+          <li>
             <Link to={"/"} onClick={logout}>
               Logout
             </Link>
