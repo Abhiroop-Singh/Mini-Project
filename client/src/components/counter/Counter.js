@@ -11,7 +11,7 @@ const Counter = () => {
         const target = +item.getAttribute("data-target");
         const a = +item.innerText;
 
-        const increment = target / 3200;
+        const increment = target / 3200000000000000;
         if (a < target) {
           item.innerText = `${Math.ceil(a + increment)}`;
           setTimeout(updateCounter, 30);
