@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./UserDashboard.css";
+import Counter from "../counter/Counter";
 import {ethers} from "ethers"
 const UserDashboard = ({state}) => {
   const user_email = localStorage.getItem("email");
@@ -71,6 +72,18 @@ const UserDashboard = ({state}) => {
     setBiddedTender(bidInfo);
     setAllotedTender(allotInfo);
   };
+  const logout = () => {
+    localStorage.removeItem("email");
+  };
+
+
+  const test=async()=>{
+    const { contract } = state;
+     const amount =ethers.utils.parseEther("0.0009")
+    const transaction =await contract.placeBid(amount)
+    await transaction.wait()
+    console.log("bid placed successfully")
+  }
 
 
   const test=async()=>{
@@ -91,12 +104,13 @@ const UserDashboard = ({state}) => {
         <div className="navdet">
           <u>
             <b>
-              <img
-                src={require("../../Assets/images/minilogo.png")}
-                alt="mini"
-                className="navimg"
-              />
-              <Link to={"/"}></Link>
+              <Link to={"/"}>
+                <img
+                  src={require("../../Assets/images/minilogo.png")}
+                  alt="mini"
+                  className="navimg"
+                />
+              </Link>
             </b>
           </u>
           <h1>Bidder's Dashboard</h1>
@@ -113,7 +127,12 @@ const UserDashboard = ({state}) => {
             </Link>
           </li>
           <li>
-            <Link to={"/"}>Logout</Link>
+            <Link to={"/"}>Home</Link>
+          </li>
+          <li>
+            <Link to={"/"} onClick={logout}>
+              Logout
+            </Link>
           </li>
         </ul>
       </nav>
@@ -121,6 +140,7 @@ const UserDashboard = ({state}) => {
       <div className="udbmain">
         <h1 id="udbnamehead">Hello {username}!</h1>
         <h1 id="welcomeudb">Welcome, Sir!</h1>
+        <Counter />
         <div className="tender" id="allotudb">
           Allotted Tenders
         </div>

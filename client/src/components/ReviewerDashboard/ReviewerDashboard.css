@@ -48,3 +48,11 @@
   border: 1px solid black;
   border-radius: 2px;
 }
+.bsubsbh {
+  color: white;
+  background-color: green;
+  padding: 0.3rem 1.2rem;
+  margin: 1rem auto;
+  border: 2px solid darkgreen;
+  border-radius: 7px;
+}

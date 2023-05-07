@@ -119,13 +119,17 @@
 }
 .upbidinner {
   display: flex;
-  justify-content: space-around;
+  justify-content: start;
   width: 60%;
 }
-#submitbuttonbidup {
+.submitbuttonbidup {
   padding: 0 2rem;
   background-color: green;
   color: white;
   border-radius: 7px;
-  cursor:pointer;
+  cursor: pointer;
+}
+#absbh {
+  display: flex;
+  justify-content: space-between;
 }

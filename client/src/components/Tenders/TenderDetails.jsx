@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import "./Tender.css";
+import { useToast } from "@chakra-ui/react";
 import { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const TenderDetails = () => {
+  const navigate = useNavigate();
   const [tender, setTender] = useState({});
   const { state } = useLocation();
+
+  var usemail = localStorage.getItem("email");
 
   const getTenderDetails = async () => {
     const referenceNumber = state.tender;
@@ -16,9 +20,28 @@ const TenderDetails = () => {
     setTender(res.data.data);
     console.log(res.data.data);
   };
+
   useEffect(() => {
     getTenderDetails();
   }, []);
+
+  var usemail = localStorage.getItem("email");
+  const logout = () => {
+    localStorage.removeItem("email");
+  };
+
+  const toast = useToast();
+
+  const success = () => {
+    toast({
+      title: "Bid Placed Successfully!",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+      position: "top-left",
+    });
+    navigate("/");
+  };
 
   return (
     <div>
@@ -36,11 +59,27 @@ const TenderDetails = () => {
             </b>
           </u>
         </h1>
-        <ul>
-          <li>
-            <Link to={"/"}>Homepage</Link>
-          </li>
-        </ul>
+        {usemail ? (
+          <ul>
+            <li>
+              <Link to={"/user"}>Dashboard</Link>
+            </li>
+            <li>
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li>
+              <Link to={"/"} onClick={logout}>
+                Logout
+              </Link>
+            </li>
+          </ul>
+        ) : (
+          <ul>
+            <li>
+              <Link to={"/"}>Homepage</Link>
+            </li>
+          </ul>
+        )}
       </nav>
 
       <div className="maindetailstend">
@@ -57,14 +96,10 @@ const TenderDetails = () => {
               <h1 className="texth2">Tender RefNo. : &nbsp;</h1>
               <p className="textp2"> {tender.referenceNumber}</p>
             </div>
-            <div className="textspan1">
-              <h1 className="texth2">TenderID : &nbsp;</h1>
-              <p className="textp2"> value</p>
-            </div>
 
             <div className="textspan1">
-              <h1 className="texth2">Tender Category : &nbsp;</h1>
-              <p className="textp2"> value</p>
+              <h1 className="texth2">Tender Title : &nbsp;</h1>
+              <p className="textp2"> {tender.tenderTitle}</p>
             </div>
           </div>
           <div className="listingdata">
@@ -103,7 +138,7 @@ const TenderDetails = () => {
             </div>
             <div className="textspan1">
               <h1 className="texth2">Name &nbsp;</h1>
-              <p className="textp2"> value</p>
+              <p className="textp2"> {tender.governingAuthority}</p>
             </div>
           </div>
         </div>
@@ -112,14 +147,19 @@ const TenderDetails = () => {
         <div className="headingslisting" id="upbid1">
           Place A Bid
         </div>
-        <div className="textspan1">
+        <div className="textspan1" id="absbh">
           <h1 className="texth2" id="h12323">
-            Upload a pdf &nbsp;
+            To place a bid{" "}
           </h1>
-          <div className="upbidinner">
-            <input type="file" name="" id="" />
-            <input type="submit" value="Submit" id="submitbuttonbidup" />
-          </div>
+          {usemail ? (
+            <button className="submitbuttonbidup" onClick={success}>
+              Submit Bid
+            </button>
+          ) : (
+            <Link to={"/bidderlog"} className="upbidinner">
+              <button className="submitbuttonbidup">Login</button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
