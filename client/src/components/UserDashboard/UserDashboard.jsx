@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./UserDashboard.css";
-
-const UserDashboard = () => {
+import {ethers} from "ethers"
+const UserDashboard = ({state}) => {
   const user_email = localStorage.getItem("email");
 
   //storing info of tenders
@@ -71,6 +71,15 @@ const UserDashboard = () => {
     setBiddedTender(bidInfo);
     setAllotedTender(allotInfo);
   };
+
+
+  const test=async()=>{
+    const { contract } = state;
+     const amount =ethers.utils.parseEther("0.0009")
+    const transaction =await contract.placeBid(amount)
+    await transaction.wait()
+    console.log("bid placed successfully")
+  }
 
   useEffect(() => {
     fetchTenders();
@@ -180,6 +189,7 @@ const UserDashboard = () => {
           );
         })}
       </div>
+      <button onClick={test}>place bid</button>
     </div>
   );
 };

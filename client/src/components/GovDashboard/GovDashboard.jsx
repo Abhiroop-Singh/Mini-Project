@@ -11,8 +11,22 @@ import {
   TabPanel,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import {ethers} from "ethers"
+const GovDashboard = ({state}) => {
 
-const GovDashboard = () => {
+
+
+
+
+
+
+
+
+
+
+
+
+
   const [tenderTitle, setTenderTitle] = useState("");
   const [authority, setAuthority] = useState("");
   const [referenceNumber, setReferenceNumber] = useState("");
@@ -76,6 +90,34 @@ const GovDashboard = () => {
       setTenderDetails(e.target.value);
     }
   };
+
+const test=async(e)=>{
+  e.preventDefault()
+  const { contract } = state;
+    const amount = { value: ethers.utils.parseEther("0.001") };
+    const transaction =await contract.publishTender(amount);
+
+
+    // const amount =ethers.utils.parseEther("0.0007")
+    // const transaction =await contract.placeBid(amount)
+
+
+      await transaction.wait()
+      // const transaction =await contract.endAuction()
+      // await transaction.wait()
+
+    console.log("tender published")
+    
+}
+const end=async(e)=>{
+  e.preventDefault()
+  const { contract } = state;
+   
+  const transaction =await contract.endAuction()
+  await transaction.wait()
+
+    console.log("tender closed")
+}
 
   return (
     <>
@@ -297,6 +339,18 @@ const GovDashboard = () => {
           )}
         </div>
       </div>
+      <form onSubmit={test}>
+          <button type="submit">
+            Pay
+          </button>
+          
+        </form>
+        <form onSubmit={end}>
+          <button type="submit">
+            end
+          </button>
+          
+        </form>
     </>
   );
 };
