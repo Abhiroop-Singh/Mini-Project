@@ -86,13 +86,7 @@ const UserDashboard = ({state}) => {
   }
 
 
-  const test=async()=>{
-    const { contract } = state;
-     const amount =ethers.utils.parseEther("0.0009")
-    const transaction =await contract.placeBid(amount)
-    await transaction.wait()
-    console.log("bid placed successfully")
-  }
+
 
   useEffect(() => {
     fetchTenders();
