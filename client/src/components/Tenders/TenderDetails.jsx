@@ -34,7 +34,7 @@ const TenderDetails = ({val}) => {
 
 const test=async()=>{
   const { contract } = val;
-   const amount =ethers.utils.parseEther("0.001")
+   const amount =ethers.utils.parseEther("0.003")
   const transaction =await contract.placeBid(amount)
   await transaction.wait()
   console.log("bid placed successfully")
