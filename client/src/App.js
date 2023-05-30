@@ -23,7 +23,8 @@ function App() {
   const [account, setAccount] = useState("None");
   useEffect(() => {
     const connectWallet = async () => {
-      const contractAddress = "0xE55E8469f67c0Fa793b40FbD0e2e28F6d7a5E230";
+      const contractAddress = "0x03b754F3719B48DBBcDEA6C669830ce310A50B6A";
+      // 0x7e94641D89234F913768DE9008E9816ef5cFA079
       const contractABI = abi.abi;
       try {
         const { ethereum } = window;
@@ -67,10 +68,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/bidderlog" element={<BidderLog />} />
           <Route path="/gov" element={<GovDashboard state={state}/>} />
-          <Route path="/user" element={<UserDashboard state={state} />} />
+          <Route path="/user" element={<UserDashboard val={state} />} />
           <Route path="/reviewer" element={<ReviewerDashboard />} />
-          <Route path="/tenders" element={<TenderList />} />
-          <Route path="/tenderdetails/:id" element={<TenderDetails />} /> 
+          <Route path="/tenders" element={<TenderList />}  />
+          <Route path="/tenderdetails/:id" element={<TenderDetails val={state} />}  /> 
           <Route path="/success" element={<Dummydata />} />
           <Route path="/govLogin" element={<GovLogin />} />
           <Route path="/reviewerLogin" element={<ReviewerLogin />} />

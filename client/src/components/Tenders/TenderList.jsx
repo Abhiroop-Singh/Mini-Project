@@ -3,8 +3,8 @@ import "./Tender.css";
 import { useToast } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
-const TenderList = () => {
+import {ethers} from "ethers"
+const TenderList = ({val}) => {
   const [tender, setTender] = useState([]);
   const toast = useToast();
   // const [havebid, sethavebid] = useState(false);
@@ -31,6 +31,22 @@ const TenderList = () => {
       position: "top-left",
     });
   };
+
+
+  const test=async()=>{
+    const { contract } = val;
+     const amount =ethers.utils.parseEther("0.001")
+    const transaction =await contract.placeBid(amount)
+    await transaction.wait()
+    alert("bid placed successfully")
+  }
+
+
+
+
+
+
+
 
   const logout = () => {
     localStorage.removeItem("email");
@@ -156,6 +172,7 @@ const TenderList = () => {
           );
         })}
       </div>
+        <button onClick={test}>Place Bid</button>
     </div>
   );
 };

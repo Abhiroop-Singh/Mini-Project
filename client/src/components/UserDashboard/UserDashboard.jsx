@@ -4,7 +4,7 @@ import axios from "axios";
 import "./UserDashboard.css";
 import Counter from "../counter/Counter";
 import {ethers} from "ethers"
-const UserDashboard = ({state}) => {
+const UserDashboard = ({val}) => {
   const user_email = localStorage.getItem("email");
 
   //storing info of tenders
@@ -78,11 +78,11 @@ const UserDashboard = ({state}) => {
 
 
   const test=async()=>{
-    const { contract } = state;
-     const amount =ethers.utils.parseEther("0.0009")
+    const { contract } = val;
+     const amount =ethers.utils.parseEther("0.001")
     const transaction =await contract.placeBid(amount)
     await transaction.wait()
-    console.log("bid placed successfully")
+    alert("bid placed successfully")
   }
 
 
