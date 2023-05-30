@@ -11,8 +11,8 @@ import {
   TabPanel,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-
-const GovDashboard = () => {
+import { ethers } from "ethers";
+const GovDashboard = ({ state }) => {
   const [tenderTitle, setTenderTitle] = useState("");
   const [authority, setAuthority] = useState("");
   const [referenceNumber, setReferenceNumber] = useState("");
@@ -76,6 +76,32 @@ const GovDashboard = () => {
       setTenderDetails(e.target.value);
     }
   };
+
+const test=async(e)=>{
+  e.preventDefault()
+  const { contract } = state;
+    const amount = { value: ethers.utils.parseEther("0.003") };
+    const transaction =await contract.publishTender(amount);
+
+    // const amount =ethers.utils.parseEther("0.0007")
+    // const transaction =await contract.placeBid(amount)
+
+    await transaction.wait();
+    // const transaction =await contract.endAuction()
+    // await transaction.wait()
+
+    alert("tender published")
+    
+}
+const end=async(e)=>{
+  e.preventDefault()
+  const { contract } = state;
+   
+  const transaction =await contract.endAuction()
+  await transaction.wait()
+
+   alert("tender Closed")
+}
 
   return (
     <>
@@ -302,13 +328,25 @@ const GovDashboard = () => {
                 <h4>Upload a file</h4>
                 <input type="file" name="image" id="testImage"></input>
               </div>
-              <button type="submit" className="govSubmit">
+              <button type="submit" className="govSubmit" onClick={test}>
                 Submit Tender
               </button>
             </form>
           )}
         </div>
       </div>
+    
+          {/* <button onClick={test}>
+            Pay
+          </button> */}
+          
+        
+        <form onSubmit={end}>
+          <button type="submit">
+            end
+          </button>
+          
+        </form>
     </>
   );
 };

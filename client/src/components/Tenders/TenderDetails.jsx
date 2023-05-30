@@ -4,8 +4,8 @@ import { useToast } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-
-const TenderDetails = () => {
+import {ethers} from "ethers"
+const TenderDetails = ({val}) => {
   const navigate = useNavigate();
   const [tender, setTender] = useState({});
   const { state } = useLocation();
@@ -29,6 +29,20 @@ const TenderDetails = () => {
   const logout = () => {
     localStorage.removeItem("email");
   };
+
+//placing bid function
+
+const test=async()=>{
+  const { contract } = val;
+   const amount =ethers.utils.parseEther("0.001")
+  const transaction =await contract.placeBid(amount)
+  await transaction.wait()
+  console.log("bid placed successfully")
+}
+
+
+
+
 
   const toast = useToast();
 
@@ -152,7 +166,7 @@ const TenderDetails = () => {
             To place a bid{" "}
           </h1>
           {usemail ? (
-            <button className="submitbuttonbidup" onClick={success}>
+            <button className="submitbuttonbidup" onClick={test}>
               Submit Bid
             </button>
           ) : (

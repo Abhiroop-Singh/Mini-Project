@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./UserDashboard.css";
 import Counter from "../counter/Counter";
-
-const UserDashboard = () => {
+import {ethers} from "ethers"
+const UserDashboard = ({val}) => {
   const user_email = localStorage.getItem("email");
 
   //storing info of tenders
@@ -75,6 +75,18 @@ const UserDashboard = () => {
   const logout = () => {
     localStorage.removeItem("email");
   };
+
+
+  const test=async()=>{
+    const { contract } = val;
+     const amount =ethers.utils.parseEther("0.001")
+    const transaction =await contract.placeBid(amount)
+    await transaction.wait()
+    alert("bid placed successfully")
+  }
+
+
+
 
   useEffect(() => {
     fetchTenders();
@@ -191,6 +203,7 @@ const UserDashboard = () => {
           );
         })}
       </div>
+      <button onClick={test}>place bid</button>
     </div>
   );
 };
