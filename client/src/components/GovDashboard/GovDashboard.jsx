@@ -154,12 +154,18 @@ const GovDashboard = () => {
                   </TabPanel>
                   <TabPanel>
                     <table className="gdbtable">
+                    <tr>
+                        <th>Tender Title</th>
+                        <th>Reference No.</th>
+                        <th>Details</th>
+                        <th>Bid Closing Date</th>
+                      </tr>
                       {allotted.map((e) => {
-                        return (
+                        return ( 
                           <tr>
                             <td>{e.tenderTitle}</td>
                             <td>{e.referenceNumber}</td>
-                            <td>{e.bidOpeningDate}</td>
+                            <td>{e.tenderDetails}</td>
                             <td>{e.bidClosingDate}</td>
                           </tr>
                         );
@@ -168,13 +174,19 @@ const GovDashboard = () => {
                   </TabPanel>
                   <TabPanel>
                     <table className="gdbtable">
+                    <tr>
+                        <th>Tender Title</th>
+                        <th>Reference No.</th>
+                        <th>Authority</th>
+                        <th>Location</th>
+                      </tr>
                       {closed.map((e) => {
                         return (
                           <tr>
                             <td>{e.tenderTitle}</td>
                             <td>{e.referenceNumber}</td>
-                            <td>{e.bidOpeningDate}</td>
-                            <td>{e.bidClosingDate}</td>
+                            <td>{e.governingAuthority}</td>
+                            <td>{e.location}</td>
                           </tr>
                         );
                       })}
