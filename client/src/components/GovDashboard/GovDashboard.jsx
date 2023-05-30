@@ -11,22 +11,8 @@ import {
   TabPanel,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import {ethers} from "ethers"
-const GovDashboard = ({state}) => {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import { ethers } from "ethers";
+const GovDashboard = ({ state }) => {
   const [tenderTitle, setTenderTitle] = useState("");
   const [authority, setAuthority] = useState("");
   const [referenceNumber, setReferenceNumber] = useState("");
@@ -97,14 +83,12 @@ const test=async(e)=>{
     const amount = { value: ethers.utils.parseEther("0.003") };
     const transaction =await contract.publishTender(amount);
 
-
     // const amount =ethers.utils.parseEther("0.0007")
     // const transaction =await contract.placeBid(amount)
 
-
-      await transaction.wait()
-      // const transaction =await contract.endAuction()
-      // await transaction.wait()
+    await transaction.wait();
+    // const transaction =await contract.endAuction()
+    // await transaction.wait()
 
     alert("tender published")
     

@@ -1,6 +1,6 @@
 import React from "react";
-import abi from "./contract/Bidder.json"
-import { useEffect,useState } from "react";
+import abi from "./contract/Bidder.json";
+import { useEffect, useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./components/Home/Home";
 import BidderLog from "./components/BidderLog/BidderLog";
@@ -12,7 +12,7 @@ import TenderDetails from "./components/Tenders/TenderDetails";
 import Dummydata from "./components/GovDashboard/Dummydata";
 import GovLogin from "./components/Authentication/GovLogin";
 import ReviewerLogin from "./components/Authentication/ReviewerLogin";
-import {ethers} from "ethers"
+import { ethers } from "ethers";
 
 function App() {
   const [state, setState] = useState({
@@ -59,19 +59,19 @@ function App() {
       }
     };
     connectWallet();
-  }, []); 
-  console.log(state)
+  }, []);
+  console.log(state);
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/bidderlog" element={<BidderLog />} />
-          <Route path="/gov" element={<GovDashboard state={state}/>} />
+          <Route path="/gov" element={<GovDashboard state={state} />} />
           <Route path="/user" element={<UserDashboard val={state} />} />
           <Route path="/reviewer" element={<ReviewerDashboard />} />
           <Route path="/tenders" element={<TenderList />}  />
-          <Route path="/tenderdetails/:id" element={<TenderDetails val={state} />}  /> 
+          <Route path="/tenderdetails/:id" element={<TenderDetails val={state} />}  />
           <Route path="/success" element={<Dummydata />} />
           <Route path="/govLogin" element={<GovLogin />} />
           <Route path="/reviewerLogin" element={<ReviewerLogin />} />
