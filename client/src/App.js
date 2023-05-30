@@ -1,6 +1,6 @@
 import React from "react";
-import abi from "./contract/Bidder.json"
-import { useEffect,useState } from "react";
+import abi from "./contract/Bidder.json";
+import { useEffect, useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./components/Home/Home";
 import BidderLog from "./components/BidderLog/BidderLog";
@@ -12,7 +12,7 @@ import TenderDetails from "./components/Tenders/TenderDetails";
 import Dummydata from "./components/GovDashboard/Dummydata";
 import GovLogin from "./components/Authentication/GovLogin";
 import ReviewerLogin from "./components/Authentication/ReviewerLogin";
-import {ethers} from "ethers"
+import { ethers } from "ethers";
 
 function App() {
   const [state, setState] = useState({
@@ -23,7 +23,7 @@ function App() {
   const [account, setAccount] = useState("None");
   useEffect(() => {
     const connectWallet = async () => {
-      const contractAddress = "0xE55E8469f67c0Fa793b40FbD0e2e28F6d7a5E230";
+      const contractAddress = "0x7e94641D89234F913768DE9008E9816ef5cFA079";
       const contractABI = abi.abi;
       try {
         const { ethereum } = window;
@@ -58,19 +58,19 @@ function App() {
       }
     };
     connectWallet();
-  }, []); 
-  console.log(state)
+  }, []);
+  console.log(state);
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/bidderlog" element={<BidderLog />} />
-          <Route path="/gov" element={<GovDashboard state={state}/>} />
+          <Route path="/gov" element={<GovDashboard state={state} />} />
           <Route path="/user" element={<UserDashboard state={state} />} />
           <Route path="/reviewer" element={<ReviewerDashboard />} />
           <Route path="/tenders" element={<TenderList />} />
-          <Route path="/tenderdetails/:id" element={<TenderDetails />} /> 
+          <Route path="/tenderdetails/:id" element={<TenderDetails />} />
           <Route path="/success" element={<Dummydata />} />
           <Route path="/govLogin" element={<GovLogin />} />
           <Route path="/reviewerLogin" element={<ReviewerLogin />} />

@@ -11,22 +11,8 @@ import {
   TabPanel,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import {ethers} from "ethers"
-const GovDashboard = ({state}) => {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import { ethers } from "ethers";
+const GovDashboard = ({ state }) => {
   const [tenderTitle, setTenderTitle] = useState("");
   const [authority, setAuthority] = useState("");
   const [referenceNumber, setReferenceNumber] = useState("");
@@ -91,33 +77,30 @@ const GovDashboard = ({state}) => {
     }
   };
 
-const test=async(e)=>{
-  e.preventDefault()
-  const { contract } = state;
-    const amount = { value: ethers.utils.parseEther("0.001") };
-    const transaction =await contract.publishTender(amount);
-
+  const test = async (e) => {
+    e.preventDefault();
+    const { contract } = state;
+    const amount = { value: ethers.utils.parseEther("0.011") };
+    const transaction = await contract.publishTender(amount);
 
     // const amount =ethers.utils.parseEther("0.0007")
     // const transaction =await contract.placeBid(amount)
 
+    await transaction.wait();
+    // const transaction =await contract.endAuction()
+    // await transaction.wait()
 
-      await transaction.wait()
-      // const transaction =await contract.endAuction()
-      // await transaction.wait()
+    console.log("tender published");
+  };
+  const end = async (e) => {
+    e.preventDefault();
+    const { contract } = state;
 
-    console.log("tender published")
-    
-}
-const end=async(e)=>{
-  e.preventDefault()
-  const { contract } = state;
-   
-  const transaction =await contract.endAuction()
-  await transaction.wait()
+    const transaction = await contract.endAuction();
+    await transaction.wait();
 
-    console.log("tender closed")
-}
+    console.log("tender closed");
+  };
 
   return (
     <>
@@ -340,17 +323,11 @@ const end=async(e)=>{
         </div>
       </div>
       <form onSubmit={test}>
-          <button type="submit">
-            Pay
-          </button>
-          
-        </form>
-        <form onSubmit={end}>
-          <button type="submit">
-            end
-          </button>
-          
-        </form>
+        <button type="submit">Pay</button>
+      </form>
+      <form onSubmit={end}>
+        <button type="submit">end</button>
+      </form>
     </>
   );
 };
