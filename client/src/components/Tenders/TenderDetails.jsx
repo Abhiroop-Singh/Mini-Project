@@ -37,10 +37,22 @@ const TenderDetails = ({ val }) => {
 
 const test=async()=>{
   const { contract } = val;
-   const amount =ethers.utils.parseEther("0.003")
+ 
+ 
+  
+   const amount =ethers.utils.parseEther(price)
+   
   const transaction =await contract.placeBid(amount)
   await transaction.wait()
   console.log("bid placed successfully")
+  let url=window.location.pathname
+  url=url.split("/")
+  url=url[url.length-1]
+  console.log(url)
+  const data=await axios.post("/api/user/addtender",{email:localStorage.getItem('email'),url:url})
+
+
+
 }
 
   const handleNum = (e)=>{
@@ -170,7 +182,7 @@ const test=async()=>{
           </h1>
           <label>Enter amount for tender:</label>
           <input
-            type="number"
+            type="text"
             name="num"
             onChange={handleNum}
             style={{ backgroundColor: "whitesmoke", border: "solid 0.01cm" }}
