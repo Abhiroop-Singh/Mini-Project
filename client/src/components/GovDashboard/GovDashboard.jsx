@@ -165,6 +165,7 @@ const end=async(e)=>{
                         <th>Reference No.</th>
                         <th>Closing Date</th>
                         <th>Bid Opening Date</th>
+                        <th>Amount</th>
                       </tr>
                       {active.map((e) => {
                         return (
@@ -173,6 +174,7 @@ const end=async(e)=>{
                             <td>{e.referenceNumber}</td>
                             <td>{e.bidOpeningDate}</td>
                             <td>{e.bidClosingDate}</td>
+                           <td> <button className="govSubmit" onClick={test} >Set Amount </button></td>
                           </tr>
                         );
                       })}
@@ -211,8 +213,9 @@ const end=async(e)=>{
                           <tr>
                             <td>{e.tenderTitle}</td>
                             <td>{e.referenceNumber}</td>
-                            <td>{e.governingAuthority}</td>
-                            <td>{e.location}</td>
+                            <td>{e.bidOpeningDate}</td>
+                            <td>{e.bidClosingDate}</td>
+                            
                           </tr>
                         );
                       })}
@@ -328,9 +331,12 @@ const end=async(e)=>{
                 <h4>Upload a file</h4>
                 <input type="file" name="image" id="testImage"></input>
               </div>
-              <button type="submit" className="govSubmit" onClick={test}>
+              <button type="submit" className="govSubmit" >
                 Submit Tender
               </button>
+              {/* <button className="govSubmit" onClick={test} >
+                Set Amount
+              </button> */}
             </form>
           )}
         </div>
