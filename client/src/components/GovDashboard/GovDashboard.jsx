@@ -80,7 +80,7 @@ const GovDashboard = ({ state }) => {
   const test = async (e) => {
     e.preventDefault();
     const { contract } = state;
-    const amount = { value: ethers.utils.parseEther("0.011") };
+    const amount = { value: ethers.utils.parseEther("0.003") };
     const transaction = await contract.publishTender(amount);
 
     // const amount =ethers.utils.parseEther("0.0007")
@@ -90,7 +90,7 @@ const GovDashboard = ({ state }) => {
     // const transaction =await contract.endAuction()
     // await transaction.wait()
 
-    console.log("tender published");
+    alert("tender published");
   };
   const end = async (e) => {
     e.preventDefault();
@@ -99,7 +99,7 @@ const GovDashboard = ({ state }) => {
     const transaction = await contract.endAuction();
     await transaction.wait();
 
-    console.log("tender closed");
+    alert("tender Closed");
   };
 
   return (
@@ -315,16 +315,18 @@ const GovDashboard = ({ state }) => {
                 <h4>Upload a file</h4>
                 <input type="file" name="image" id="testImage"></input>
               </div>
-              <button type="submit" className="govSubmit">
+              <button type="submit" className="govSubmit" onClick={test}>
                 Submit Tender
               </button>
             </form>
           )}
         </div>
       </div>
-      <form onSubmit={test}>
-        <button type="submit">Pay</button>
-      </form>
+
+      {/* <button onClick={test}>
+            Pay
+          </button> */}
+
       <form onSubmit={end}>
         <button type="submit">end</button>
       </form>
