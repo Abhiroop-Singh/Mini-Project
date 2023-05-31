@@ -4,10 +4,12 @@ import { useToast } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import {ethers} from "ethers"
-const TenderDetails = ({val}) => {
+import { ethers } from "ethers"
+
+const TenderDetails = ({ val }) => {
   const navigate = useNavigate();
   const [tender, setTender] = useState({});
+  const [price, setPrice] = useState("");
   const { state } = useLocation();
 
   var usemail = localStorage.getItem("email");
@@ -21,6 +23,7 @@ const TenderDetails = ({val}) => {
     console.log(res.data.data);
   };
 
+
   useEffect(() => {
     getTenderDetails();
   }, []);
@@ -30,19 +33,20 @@ const TenderDetails = ({val}) => {
     localStorage.removeItem("email");
   };
 
-//placing bid function
+  //placing bid function
 
-const test=async()=>{
-  const { contract } = val;
-   const amount =ethers.utils.parseEther("0.001")
-  const transaction =await contract.placeBid(amount)
-  await transaction.wait()
-  console.log("bid placed successfully")
-}
+  const test = async () => {
+    console.log(typeof price);
+    const { contract } = val;
+    const amount = ethers.utils.parseEther(price)
+    const transaction = await contract.placeBid(amount)
+    await transaction.wait()
+    console.log("bid placed successfully")
+  }
 
-
-
-
+  const handleNum = (e)=>{
+    setPrice(e.target.value);
+  }
 
   const toast = useToast();
 
@@ -165,6 +169,13 @@ const test=async()=>{
           <h1 className="texth2" id="h12323">
             To place a bid{" "}
           </h1>
+          <label>Enter amount for tender:</label>
+          <input
+            type="number"
+            name="num"
+            onChange={handleNum}
+            style={{ backgroundColor: "whitesmoke", border: "solid 0.01cm" }}
+          />
           {usemail ? (
             <button className="submitbuttonbidup" onClick={test}>
               Submit Bid
