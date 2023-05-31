@@ -61,5 +61,10 @@ router.get('/getUser',async(req,res)=>{
     const val = await user.find({});
     res.status(200).json({success:true,data:val});
 });
+router.post("/addtender",async(req,res)=>{
+    const email=req.body.email;
+    const url=req.body.url;
+    await user.updateOne({email:email},{$push:{biddedTenders:url}})
+})
 
 module.exports = router;

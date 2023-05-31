@@ -5,9 +5,11 @@ import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ethers } from "ethers";
+
 const TenderDetails = ({ val }) => {
   const navigate = useNavigate();
   const [tender, setTender] = useState({});
+  const [price, setPrice] = useState("");
   const { state } = useLocation();
 
   var usemail = localStorage.getItem("email");
@@ -34,10 +36,24 @@ const TenderDetails = ({ val }) => {
 
   const test = async () => {
     const { contract } = val;
-    const amount = ethers.utils.parseEther("0.001");
+
+    const amount = ethers.utils.parseEther(price);
+
     const transaction = await contract.placeBid(amount);
     await transaction.wait();
     console.log("bid placed successfully");
+    let url = window.location.pathname;
+    url = url.split("/");
+    url = url[url.length - 1];
+    console.log(url);
+    const data = await axios.post("/api/user/addtender", {
+      email: localStorage.getItem("email"),
+      url: url,
+    });
+  };
+
+  const handleNum = (e) => {
+    setPrice(e.target.value);
   };
 
   const toast = useToast();
@@ -161,6 +177,13 @@ const TenderDetails = ({ val }) => {
           <h1 className="texth2" id="h12323">
             To place a bid{" "}
           </h1>
+          <label>Enter amount for tender:</label>
+          <input
+            type="text"
+            name="num"
+            onChange={handleNum}
+            style={{ backgroundColor: "whitesmoke", border: "solid 0.01cm" }}
+          />
           {usemail ? (
             <button className="submitbuttonbidup" onClick={test}>
               Submit Bid
